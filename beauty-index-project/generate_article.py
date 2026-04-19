@@ -109,6 +109,9 @@ class BeautyManager:
         proportion_data = {"whr": 0.68, "height": 160} if category == "3D" else None
         total_score = self.engine.calculate_beauty_index(best_res, proportion_data)
 
+        # サムネイル画像の取得
+        best_img_url = best_candidate['item'].get('imageURL', {}).get('large', '')
+
         # データをまとめる (全5指標を明示的に保存)
         result_data = {
             "name": display_name,
@@ -120,6 +123,7 @@ class BeautyManager:
             "dimorphism": 85.0,
             "social_meme": 80.0,
             "affiliate_url": best_candidate['item'].get('affiliateURL', '').replace("namasoku-990", "namasoku-001"), # DB用
+            "image_url": best_img_url,
             "selected_candidates": selected_candidates # 記事構築用
         }
         
@@ -253,6 +257,36 @@ class BeautyManager:
 
         if post:
             print(f"Success! Article posted: {post['link']}")
+            
+            # WordPress側のランキングREST APIにデータを送る
+            print("Sending data to WordPress Ranking API...")
+            try:
+                import requests
+                import os
+                wp_url = os.getenv("WP_URL")
+                wp_user = os.getenv("WP_USERNAME")
+                wp_pass = os.getenv("WP_APP_PASSWORD")
+                
+                if wp_url and wp_user and wp_pass:
+                    endpoint = f"{wp_url.rstrip('/')}/wp-json/beauty-index/v1/update-score"
+                    payload = {
+                        "name": res_data['name'],
+                        "category": res_data['category'],
+                        "score": res_data['total_score'],
+                        "affiliate_url": res_data['affiliate_url'],
+                        "article_url": post['link'],
+                        "image_url": res_data.get('image_url', '')
+                    }
+                    resp = requests.post(endpoint, json=payload, auth=(wp_user, wp_pass))
+                    if resp.status_code == 200:
+                        print("Successfully updated real-time ranking data.")
+                    else:
+                        print(f"Failed to update ranking. Status: {resp.status_code}, Msg: {resp.text}")
+                else:
+                    print("Missing WordPress API credentials (WP_URL, WP_USERNAME, WP_APP_PASSWORD).")
+            except Exception as e:
+                print(f"Error sending data to WP Ranking API: {e}")
+
             return post
         return None
 
@@ -313,6 +347,6 @@ if __name__ == "__main__":
         manager.run_objective_analysis(name=args.name, category=args.category, keyword=args.keyword)
         manager.generate_ranking_report()
     else:
-        # 引数がない場合はデフォルト（テスト用）
-        manager.run_objective_analysis(name="河北彩伽", category="3D")
+        # 引数がない場合はデフォルト（サンプル用）
+        manager.run_objective_analysis(name="天海春香", category="2D")
         manager.generate_ranking_report()
