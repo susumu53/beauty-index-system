@@ -293,7 +293,6 @@ class BeautyManager:
             print("Sending data to WordPress Ranking API...")
             try:
                 import requests
-                import os
                 wp_url = os.getenv("WP_URL")
                 wp_user = os.getenv("WP_USERNAME")
                 wp_pass = os.getenv("WP_APP_PASSWORD")

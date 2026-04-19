@@ -116,11 +116,13 @@ class AI_Beauty_Portal {
         $found = false;
         foreach ($ranking[$year] as &$entry) {
             if ($entry['name'] === $name && $entry['category'] === $category) {
+                // スコアの大小に関わらず、最新の記事URLと画像URL、アフィリエイトリンクは常に上書き（反映）する
+                if ($article_url) $entry['article_url'] = $article_url;
+                if ($image_url) $entry['image_url'] = $image_url;
+                if ($url) $entry['affiliate_url'] = $url;
+
                 if ($score > $entry['score']) {
                     $entry['score'] = $score;
-                    $entry['affiliate_url'] = $url;
-                    if ($article_url) $entry['article_url'] = $article_url;
-                    if ($image_url) $entry['image_url'] = $image_url;
                 }
                 $found = true;
                 break;
