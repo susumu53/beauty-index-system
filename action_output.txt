@@ -1,19 +1,24 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776636648.378866    2831 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776636648.384376    2834 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776636648.390278    2832 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776636954.130719    2810 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776636954.136058    2814 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776636954.141929    2811 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
 
 --- Objective Analysis for 3D Subject: 河北彩伽 ---
-Actress '前田敦子' not found by name search. Falling back to keyword search...
-Found 6 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【電子版だけの特典カットつき】前田敦子写真集 Be... - Face Occ: 0.071
-  [4] 【電子版だけの特典カットつき】前田敦子写真集 Be... - Face Occ: 0.071
+Found actress: 天木じゅん
+Fetching works from DMM.com...
+Found 50 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 【大増量】天木じゅん写真集「卒業」... - Face Occ: 0.155
+  [3] 天木じゅん 純愛夢譚... - Face Occ: 0.076
+  [4] ＜動画特典付き＞天木じゅん 手ブラマシマシ！2 4... - Face Occ: 0.058
+  [31] 【大増量】天木じゅん写真集「卒業」... - Face Occ: 0.155
+  [33] 天木じゅん 純愛夢譚... - Face Occ: 0.076
+  [34] ＜動画特典付き＞天木じゅん 手ブラマシマシ！2 4... - Face Occ: 0.058
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/20/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%89%8d%e7%94%b0%e6%95%a6%e5%ad%90-%e3%81%ae/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/20/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%a4%a9%e6%9c%a8%e3%81%98%e3%82%85%e3%82%93/
 
 --- Updating Official Ranking Page ---
 Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/2026/04/19/official-beauty-ranking/
