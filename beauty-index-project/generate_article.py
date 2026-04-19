@@ -329,7 +329,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Beauty Index Analysis Tool')
     parser.add_argument('--name', type=str, help='Name of the subject to analyze')
-    parser.add_argument('--category', type=str, choices=['3D', '2D'], default='3D', help='Category (3D or 2D)')
+    parser.add_argument('--category', type=str, choices=['3D', '2D'], help='Category (3D or 2D)')
     parser.add_argument('--keyword', type=str, help='Optional search keyword override')
     parser.add_argument('--ranking-only', action='store_true', help='Only update the ranking page')
 
@@ -337,16 +337,20 @@ if __name__ == "__main__":
     
     manager = BeautyManager()
 
+    # 引数または環境変数から値を取得
+    target_name = args.name or os.getenv('ANALYSIS_NAME')
+    target_category = args.category or os.getenv('ANALYSIS_CATEGORY') or "3D"
+
     if args.ranking_only:
         manager.generate_ranking_report()
         sys.exit(0)
 
-    if args.name:
-        # 指定された名前で実行
-        print(f"Starting analysis for: {args.name} ({args.category})")
-        manager.run_objective_analysis(name=args.name, category=args.category, keyword=args.keyword)
+    if target_name:
+        print(f"Starting analysis for: {target_name} ({target_category})")
+        manager.run_objective_analysis(name=target_name, category=target_category, keyword=args.keyword)
         manager.generate_ranking_report()
     else:
-        # 引数がない場合はデフォルト（サンプル用）
-        manager.run_objective_analysis(name="天海春香", category="2D")
-        manager.generate_ranking_report()
+        # どちらもない場合はヘルプ表示
+        print("Usage: python generate_article.py --name 'Name' [--category 3D/2D]")
+        print("Alternatively, set ANALYSIS_NAME and ANALYSIS_CATEGORY environment variables.")
+        sys.exit(1)
