@@ -16,6 +16,10 @@ class BeautyManager:
         self.uploader = WPUploader()
         self.db = BeautyDatabase()
 
+    def _fetch_and_analyze(self, name, category, keyword_override=None, required_image_count=3):
+        """1人の対象を深く分析し、顔占有率の高い画像を複数取得する"""
+        print(f"\n--- Objective Analysis for {category} Subject: {name} ---")
+        
         # 環境変数経由での名前取得（文字化け対策）を優先
         env_name = os.getenv('ANALYSIS_NAME')
         if env_name:
