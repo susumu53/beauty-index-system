@@ -1,12 +1,121 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776587032.667296    2821 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776587032.671500    2826 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776587032.679023    2821 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-Starting analysis for: 井手美希 (3D)
+W0000 00:00:1776587152.190488    3432 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776587152.197667    3434 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776587152.204365    3430 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
+  warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 24038 (\N{CJK UNIFIED IDEOGRAPH-5DE6}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 21491 (\N{CJK UNIFIED IDEOGRAPH-53F3}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 23550 (\N{CJK UNIFIED IDEOGRAPH-5BFE}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 31216 (\N{CJK UNIFIED IDEOGRAPH-79F0}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 24615 (\N{CJK UNIFIED IDEOGRAPH-6027}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+findfont: Font family 'MS Gothic' not found.
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 33509 (\N{CJK UNIFIED IDEOGRAPH-82E5}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 36820 (\N{CJK UNIFIED IDEOGRAPH-8FD4}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 12426 (\N{HIRAGANA LETTER RI}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 25351 (\N{CJK UNIFIED IDEOGRAPH-6307}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 25968 (\N{CJK UNIFIED IDEOGRAPH-6570}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+findfont: Font family 'MS Gothic' not found.
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 12503 (\N{KATAKANA LETTER PU}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 12525 (\N{KATAKANA LETTER RO}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 12509 (\N{KATAKANA LETTER PO}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 12540 (\N{KATAKANA-HIRAGANA PROLONGED SOUND MARK}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 12471 (\N{KATAKANA LETTER SI}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 12519 (\N{KATAKANA LETTER SMALL YO}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 12531 (\N{KATAKANA LETTER N}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+findfont: Font family 'MS Gothic' not found.
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 30340 (\N{CJK UNIFIED IDEOGRAPH-7684}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 20108 (\N{CJK UNIFIED IDEOGRAPH-4E8C}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 22411 (\N{CJK UNIFIED IDEOGRAPH-578B}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+findfont: Font family 'MS Gothic' not found.
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 31038 (\N{CJK UNIFIED IDEOGRAPH-793E}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 20250 (\N{CJK UNIFIED IDEOGRAPH-4F1A}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 35413 (\N{CJK UNIFIED IDEOGRAPH-8A55}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py:210: UserWarning: Glyph 20385 (\N{CJK UNIFIED IDEOGRAPH-4FA1}) missing from font(s) DejaVu Sans.
+  plt.savefig(output_path)
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+findfont: Font family 'MS Gothic' not found.
+Starting analysis for: 三上悠亜 (3D)
 
---- Objective Analysis for 3D Subject: 井手美希 ---
-Actress not found.
+--- Objective Analysis for 3D Subject: 三上悠亜 ---
+Fetching photo books from DMM.com...
+Found 36 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 三上悠亜 2nd写真集 「Your Angel」... - Face Occ: 0.037
+  [2] 三上悠亜 1st写真集 「Here you are... - Face Occ: 0.048
+  [4] 三上悠亜「ICONIC」【ヤングチャンピオンデジグ... - Face Occ: 0.134
+  [5] FLASHデジタル写真集 三上悠亜 Next St... - Face Occ: 0.126
+  [7] 【デジタル限定】三上悠亜写真集「Your DOLL... - Face Occ: 0.091
+  [8] ［ハレム］三上悠亜フェチグラビア「Cute Jui... - Face Occ: 0.052
+  [10] 【デジタル限定】三上悠亜写真集「399DAYS」3... - Face Occ: 0.052
+  [11] 【デジタル限定】三上悠亜写真集「399DAYS」3... - Face Occ: 0.043
+  [12] 【デジタル限定】三上悠亜写真集「399DAYS」3... - Face Occ: 0.184
+  [13] 週刊大衆デジタル写真集NUDE : 1 三上悠亜... - Face Occ: 0.029
+  [16] FRIDAYデジタル写真集 たかしょー＆三上悠亜「... - Face Occ: 0.07
+  [17] FRIDAYデジタル写真集 三上悠亜「マジで恋する... - Face Occ: 0.041
+  [19] 三上悠亜 2nd写真集 「Your Angel」... - Face Occ: 0.037
+  [20] 三上悠亜 1st写真集 「Here you are... - Face Occ: 0.048
+  [22] 三上悠亜「ICONIC」【ヤングチャンピオンデジグ... - Face Occ: 0.134
+  [23] FLASHデジタル写真集 三上悠亜 Next St... - Face Occ: 0.126
+  [25] 【デジタル限定】三上悠亜写真集「Your DOLL... - Face Occ: 0.091
+  [26] ［ハレム］三上悠亜フェチグラビア「Cute Jui... - Face Occ: 0.052
+  [28] 【デジタル限定】三上悠亜写真集「399DAYS」3... - Face Occ: 0.052
+  [29] 【デジタル限定】三上悠亜写真集「399DAYS」3... - Face Occ: 0.043
+  [30] 【デジタル限定】三上悠亜写真集「399DAYS」3... - Face Occ: 0.184
+  [31] 週刊大衆デジタル写真集NUDE : 1 三上悠亜... - Face Occ: 0.029
+  [34] FRIDAYデジタル写真集 たかしょー＆三上悠亜「... - Face Occ: 0.07
+  [35] FRIDAYデジタル写真集 三上悠亜「マジで恋する... - Face Occ: 0.041
+
+Uploading media to WordPress...
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/19/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e4%b8%89%e4%b8%8a%e6%82%a0%e4%ba%9c-%e3%81%ae/
 
 --- Updating Official Ranking Page ---
 Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/?p=222
