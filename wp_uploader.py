@@ -43,7 +43,7 @@ class WPUploader:
             "content": content,
             "status": "publish", # 本番稼働時はpublish
             "categories": categories or [],
-            "tags": tags or []
+            "tags": tags or [999] # 特定のタグID(仮に999)を付加してプラグインで判別可能にする
         }
         if slug:
             post_data["slug"] = slug
