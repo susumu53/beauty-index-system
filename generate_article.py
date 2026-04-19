@@ -16,31 +16,37 @@ class BeautyManager:
         self.uploader = WPUploader()
         self.db = BeautyDatabase()
 
-    def _fetch_and_analyze(self, name, category, keyword_override=None, required_image_count=3):
-        """1人の対象を深く分析し、顔占有率の高い画像を複数取得する"""
-        print(f"\n--- Objective Analysis for {category} Subject: {name} ---")
-        
+        # 環境変数経由での名前取得（文字化け対策）を優先
+        env_name = os.getenv('ANALYSIS_NAME')
+        if env_name:
+            name = env_name
+            
         works = []
         is_2d_flag = (category == "2D")
         
         if category == "3D":
             actresses = self.client.search_actress(name=name)
             if not actresses: 
-                print("Actress not found.")
-                return None
-            a = actresses[0]
-            display_name = a['name']
-            
-            # 幅広く検索して占有率の高いものを探す (最大50件)
-            print("Fetching photo books from DMM.com...")
-            # 実は一般の写真集はactress_id検索よりキーワード検索の方が見つかりやすい
-            w1 = self.client.get_anime_works(keyword=f"{name} 写真集", hits=30, service="ebook")
-            w2 = self.client.get_anime_works(keyword=f"{name} 写真集", hits=20, service="digital", floor="digital_book")
-            works = w1 + w2
+                print(f"Actress '{name}' not found by name search. Falling back to keyword search...")
+                # 女優DBで見つからない場合はキーワード検索でリトライ (一般タレント等)
+                display_name = name
+                w1 = self.client.get_anime_works(keyword=f"{name} 写真集", hits=30, service="ebook")
+                w2 = self.client.get_anime_works(keyword=f"{name} 写真集", hits=20, service="digital", floor="digital_book")
+                works = w1 + w2
+            else:
+                a = actresses[0]
+                display_name = a['name']
+                print(f"Found actress: {display_name}")
+                
+                # 幅広く検索して占有率の高いものを探す (最大50件)
+                print("Fetching works from DMM.com...")
+                w1 = self.client.get_anime_works(keyword=f"{display_name} 写真集", hits=30, service="ebook")
+                w2 = self.client.get_anime_works(keyword=f"{display_name} 写真集", hits=20, service="digital", floor="digital_book")
+                works = w1 + w2
         else:
             keyword = keyword_override or name
             display_name = name
-            print("Fetching comic covers from DMM.com...")
+            print(f"Fetching 2D works for: {display_name}")
             w1 = self.client.get_anime_works(keyword=keyword, hits=30, service="ebook", floor="comic")
             w2 = self.client.get_anime_works(keyword=keyword, hits=20)
             works = w1 + w2
