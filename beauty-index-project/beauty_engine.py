@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
 import math
+import japanize_matplotlib
 
 class BeautyEngine:
     def __init__(self):
@@ -133,7 +134,6 @@ class BeautyEngine:
 
     def generate_radar_chart(self, scores_3d, scores_2d, output_path="radar_chart.png"):
         """2Dと3Dのスコアを比較するレーダーチャートを生成"""
-        plt.rcParams['font.family'] = 'MS Gothic'
         labels = ["左右対称性", "若返り指数", "プロポーション", "性的二型", "社会的評価"]
         num_vars = len(labels)
 
@@ -177,7 +177,6 @@ class BeautyEngine:
 
     def generate_single_radar_chart(self, scores, output_path="radar_chart.png"):
         """1人のスコアをプロットするレーダーチャートを生成"""
-        plt.rcParams['font.family'] = 'MS Gothic'
         labels = ["左右対称性", "若返り指数", "プロポーション", "性的二型", "社会的評価"]
         num_vars = len(labels)
 
