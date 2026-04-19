@@ -238,7 +238,8 @@ class BeautyManager:
         m_chart = self.uploader.upload_media(chart_path, "beauty_chart.png")
 
         # 記事投稿
-        title = f"【美人指数 解析】進化心理学が暴く {name} の客観的美しさ"
+        display_name = res_data['name']
+        title = f"【美人指数 解析】進化心理学が暴く {display_name} の客観的美しさ"
         content = self.generate_html_content(
             res_data, media_urls, 
             m_chart['source_url'] if m_chart else ""
