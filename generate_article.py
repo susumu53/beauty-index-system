@@ -2,6 +2,7 @@ import os
 import cv2
 import json
 from dmm_client import DMMClient
+from amazon_client import AmazonPAClient
 from beauty_engine import BeautyEngine
 from wp_uploader import WPUploader
 from database import BeautyDatabase
@@ -12,6 +13,7 @@ load_dotenv()
 class BeautyManager:
     def __init__(self):
         self.client = DMMClient()
+        self.amazon = AmazonPAClient()
         self.engine = BeautyEngine()
         self.uploader = WPUploader()
         self.db = BeautyDatabase()
@@ -43,17 +45,19 @@ class BeautyManager:
                 print(f"Found actress: {display_name}")
                 
                 # 幅広く検索して占有率の高いものを探す (最大50件)
-                print("Fetching works from DMM.com...")
+                print("Fetching works from DMM.com and Amazon...")
                 w1 = self.client.get_anime_works(keyword=f"{display_name} 写真集", hits=30, service="ebook")
                 w2 = self.client.get_anime_works(keyword=f"{display_name} 写真集", hits=20, service="digital", floor="digital_book")
-                works = w1 + w2
+                amz = self.amazon.search_works(keyword=f"{display_name} 写真集", hits=10)
+                works = w1 + w2 + amz
         else:
             keyword = keyword_override or name
             display_name = name
             print(f"Fetching 2D works for: {display_name}")
             w1 = self.client.get_anime_works(keyword=keyword, hits=30, service="ebook", floor="comic")
             w2 = self.client.get_anime_works(keyword=keyword, hits=20)
-            works = w1 + w2
+            amz = self.amazon.search_works(keyword=keyword, hits=10)
+            works = w1 + w2 + amz
 
         if not works:
             print(f"No works found for {name}")
@@ -127,6 +131,13 @@ class BeautyManager:
         calc_proportion = round(prop_base + (hash_val * 8.0) - 4.0, 1)
         calc_dimorphism = round(85.0 + (hash_val * 10.0) - 5.0, 1)
 
+        # affiliate_urlはソースがAmazonの場合はそのまま使用し、DMMの場合はID置換を行う
+        aff_url_raw = best_candidate['item'].get('affiliateURL', '')
+        if "amazon.co.jp" not in aff_url_raw:
+            affiliate_url = aff_url_raw.replace("namasoku-990", "namasoku-001")
+        else:
+            affiliate_url = aff_url_raw
+
         # データをまとめる (全5指標を明示的に保存)
         result_data = {
             "name": display_name,
@@ -137,7 +148,7 @@ class BeautyManager:
             "proportion": calc_proportion,
             "dimorphism": calc_dimorphism,
             "social_meme": calc_social_meme,
-            "affiliate_url": best_candidate['item'].get('affiliateURL', '').replace("namasoku-990", "namasoku-001"), # DB用
+            "affiliate_url": affiliate_url, # DB用
             "image_url": best_img_url,
             "selected_candidates": selected_candidates # 記事構築用
         }
@@ -202,11 +213,16 @@ class BeautyManager:
         
         for cand, img_url in zip(res_data['selected_candidates'], media_urls):
             aff_url = cand['item'].get('affiliateURL', '#')
-            # アフィリエイトIDを namasoku-001 に強制置換（API用IDから手動用IDへ切り替え）
-            aff_url = aff_url.replace("namasoku-990", "namasoku-001")
+            
+            # アフィリエイトID調整 (DMMの場合のみ)
+            if "amazon.co.jp" not in aff_url:
+                aff_url = aff_url.replace("namasoku-990", "namasoku-001")
             
             title = cand['item'].get('title', '写真集')
             occ = cand['occ']
+            
+            # アイコン等（オプション）
+            source_icon = "[Amazon]" if "amazon.co.jp" in aff_url else "[DMM]"
             
             html += f"""
             <div style="text-align: center; width: 30%; min-width: 200px;">
@@ -214,7 +230,7 @@ class BeautyManager:
                     <img src="{img_url}" alt="{name}" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
                 </a>
                 <div style="margin-top: 10px; font-size: 0.9em;">
-                    <a href="{aff_url}" target="_blank" style="text-decoration: none; color: #333;"><b>{title[:25]}...</b></a><br/>
+                    <a href="{aff_url}" target="_blank" style="text-decoration: none; color: #333;"><b><span style="color:#ff8c00">{source_icon}</span> {title[:25]}...</b></a><br/>
                     <span style="color: #888; font-size: 0.8em;">(顔占有率: {occ})</span>
                 </div>
             </div>
