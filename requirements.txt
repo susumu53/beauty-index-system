@@ -4,4 +4,3 @@ numpy
 matplotlib
 python-dotenv
 requests
-sqlite3
