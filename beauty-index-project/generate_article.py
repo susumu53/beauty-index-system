@@ -120,16 +120,16 @@ class BeautyManager:
         # 名前から一意のハッシュ値を生成 (0.0 〜 1.0 の範囲)
         hash_val = int(hashlib.md5(display_name.encode('utf-8')).hexdigest(), 16) / (16**32)
         
-        # 作品検索ヒット数を加味したトレンドボーナス (最大 15.0 pt)
-        work_score = min(15.0, len(works) * 0.5)
+        # 作品検索ヒット数を加味したトレンドボーナス (1件0.3pt、最大 10.0 pt)
+        work_score = min(10.0, len(works) * 0.3)
         
-        # 社会的評価(トレンド度): 基礎点70 + 作品数スコア + 固有の揺らぎ
-        calc_social_meme = round(70.0 + work_score + (hash_val * 13.0), 1)
+        # 社会的評価(トレンド度): 基礎点65 + 作品数スコア + 固有の揺らぎ (最大でも83〜85程度に抑える厳しい基準)
+        calc_social_meme = round(65.0 + work_score + (hash_val * 8.0), 1)
         
         # その他固定値だった指標も対象ごとに微細な揺らぎ（個体差）を持たせる
         prop_base = 90.0 if category == "3D" else 85.0
-        calc_proportion = round(prop_base + (hash_val * 8.0) - 4.0, 1)
-        calc_dimorphism = round(85.0 + (hash_val * 10.0) - 5.0, 1)
+        calc_proportion = round(prop_base + (hash_val * 6.0) - 3.0, 1)
+        calc_dimorphism = round(85.0 + (hash_val * 8.0) - 4.0, 1)
 
         # affiliate_urlはソースがAmazonの場合はそのまま使用し、DMMの場合はID置換を行う
         aff_url_raw = best_candidate['item'].get('affiliateURL', '')
