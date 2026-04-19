@@ -7,19 +7,10 @@ from PIL import Image
 from io import BytesIO
 import math
 
-# 一部の環境で mp.solutions が属性エラーになるのを防ぐための明示的インポート
-try:
-    import mediapipe.python.solutions.face_mesh as mp_face_mesh
-    import mediapipe.python.solutions.selfie_segmentation as mp_selfie_segmentation
-except ImportError:
-    # フォールバック
-    mp_face_mesh = mp.solutions.face_mesh
-    mp_selfie_segmentation = mp.solutions.selfie_segmentation
-
 class BeautyEngine:
     def __init__(self):
         # 3D顔認識 (MediaPipe)
-        self.mp_face_mesh = mp_face_mesh
+        self.mp_face_mesh = mp.solutions.face_mesh
         self.face_mesh = self.mp_face_mesh.FaceMesh(
             static_image_mode=True,
             max_num_faces=1,
@@ -29,7 +20,7 @@ class BeautyEngine:
         # 2D顔認識 (OpenCV Cascade)
         self.anime_cascade = cv2.CascadeClassifier('lbpcascade_animeface.xml')
         # 被写体占有率 (MediaPipe)
-        self.segmentation = mp_selfie_segmentation.SelfieSegmentation(model_selection=0)
+        self.segmentation = mp.solutions.selfie_segmentation.SelfieSegmentation(model_selection=0)
 
     def download_image(self, url):
         response = requests.get(url)

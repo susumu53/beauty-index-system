@@ -1,6 +1,5 @@
 opencv-python-headless
-mediapipe
-protobuf>=3.20.3, <4.0.0
+mediapipe==0.10.14
 numpy
 matplotlib
 python-dotenv
