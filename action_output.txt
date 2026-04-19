@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/runner/work/beauty-index-system/beauty-index-system/generate_article.py", line 293, in <module>
+    manager = BeautyManager()
+  File "/home/runner/work/beauty-index-system/beauty-index-system/generate_article.py", line 15, in __init__
+    self.engine = BeautyEngine()
+  File "/home/runner/work/beauty-index-system/beauty-index-system/beauty_engine.py", line 13, in __init__
+    self.mp_face_mesh = mp.solutions.face_mesh
+AttributeError: module 'mediapipe' has no attribute 'solutions'
