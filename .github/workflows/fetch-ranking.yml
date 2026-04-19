@@ -1,0 +1,57 @@
+name: 急上昇ランキング取得
+
+on:
+  schedule:
+    # 毎日 JST 0:00 (UTC 15:00) に実行
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '取得対象日 (YYYY-MM-DD)。空白の場合は当日'
+        required: false
+        default: ''
+
+jobs:
+  fetch-ranking:
+    name: 急上昇ランキング取得
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js セットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 依存パッケージをインストール
+        run: npm ci
+
+      - name: SQLite データベースを復元（キャッシュ）
+        uses: actions/cache@v4
+        with:
+          path: data/rankings.db
+          key: rankings-db-${{ github.run_id }}
+          restore-keys: |
+            rankings-db-
+
+      - name: ランキングデータを取得
+        env:
+          YOUTUBE_API_KEY:      ${{ secrets.YOUTUBE_API_KEY }}
+          TWITCH_CLIENT_ID:     ${{ secrets.TWITCH_CLIENT_ID }}
+          TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            node src/index.js "${{ github.event.inputs.date }}"
+          else
+            node src/index.js
+          fi
+
+      - name: DB をアーティファクトとして保存（90日間保持）
+        uses: actions/upload-artifact@v4
+        with:
+          name: rankings-db-${{ github.run_id }}
+          path: data/rankings.db
+          retention-days: 90

@@ -1,0 +1,21 @@
+# railway.toml
+# Railway (https://railway.app) へのデプロイ設定
+# 無料枠: 月500時間・メモリ512MB
+# デプロイコマンド: railway up
+
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand    = "npm start"
+healthcheckPath = "/healthz"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+# 環境変数は Railway ダッシュボードの Variables タブで設定する:
+#   YOUTUBE_API_KEY
+#   TWITCH_CLIENT_ID
+#   TWITCH_CLIENT_SECRET
+#   REGION_CODE=JP
+#   FETCH_LIMIT=50
+#   PORT=3000  （Railway が自動設定するので通常は不要）

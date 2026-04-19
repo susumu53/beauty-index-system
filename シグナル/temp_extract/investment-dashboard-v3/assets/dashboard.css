@@ -1,0 +1,200 @@
+/* Investment Dashboard Plugin Styles */
+
+.invd-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.invd-wrap *, .invd-wrap *::before, .invd-wrap *::after {
+    box-sizing: border-box;
+}
+
+/* ── Dark Theme ── */
+.invd-theme-dark {
+    background: #0d1117;
+    color: #e6edf3;
+    padding: 16px;
+    border-radius: 10px;
+}
+.invd-theme-dark .invd-header        { border-bottom-color: #21262d; }
+.invd-theme-dark .invd-tab           { border-color: #30363d; color: #7d8590; background: transparent; }
+.invd-theme-dark .invd-tab:hover     { border-color: #484f58; color: #e6edf3; }
+.invd-theme-dark .invd-tab.active    { background: #1f2d3d; color: #79c0ff; border-color: #388bfd; }
+.invd-theme-dark .invd-chart-box     { background: #161b22; border-color: #21262d; }
+.invd-theme-dark .invd-chart-title   { color: #484f58; }
+.invd-theme-dark .invd-signal-bar    { background: #161b22; border-color: #21262d; }
+.invd-theme-dark .invd-sb-label      { color: #7d8590; }
+.invd-theme-dark .invd-sb-meter      { background: #21262d; }
+.invd-theme-dark .invd-ind-card      { background: #161b22; border-color: #21262d; }
+.invd-theme-dark .invd-ind-name      { color: #484f58; }
+.invd-theme-dark .invd-live          { color: #7d8590; }
+.invd-theme-dark .invd-sym           { color: #7d8590; }
+.invd-theme-dark .invd-chart-grid    { color: rgba(255,255,255,.05); }
+
+/* ── Light Theme ── */
+.invd-theme-light {
+    background: #ffffff;
+    color: #1a1a2e;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+.invd-theme-light .invd-header       { border-bottom-color: #e2e8f0; }
+.invd-theme-light .invd-tab          { border-color: #e2e8f0; color: #64748b; background: transparent; }
+.invd-theme-light .invd-tab:hover    { border-color: #94a3b8; color: #1a1a2e; }
+.invd-theme-light .invd-tab.active   { background: #eff6ff; color: #1d4ed8; border-color: #3b82f6; }
+.invd-theme-light .invd-chart-box    { background: #f8fafc; border-color: #e2e8f0; }
+.invd-theme-light .invd-chart-title  { color: #94a3b8; }
+.invd-theme-light .invd-signal-bar   { background: #f8fafc; border-color: #e2e8f0; }
+.invd-theme-light .invd-sb-label     { color: #64748b; }
+.invd-theme-light .invd-sb-meter     { background: #e2e8f0; }
+.invd-theme-light .invd-ind-card     { background: #f8fafc; border-color: #e2e8f0; }
+.invd-theme-light .invd-ind-name     { color: #94a3b8; }
+.invd-theme-light .invd-live         { color: #64748b; }
+.invd-theme-light .invd-sym          { color: #64748b; }
+
+/* ── Header ── */
+.invd-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid;
+}
+.invd-logo { font-size: 15px; font-weight: 600; letter-spacing: .01em; }
+.invd-live  { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.invd-dot   {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #238636;
+    animation: invd-pulse 1.8s ease-in-out infinite;
+}
+@keyframes invd-pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* ── Tabs ── */
+.invd-tabs { display: flex; gap: 4px; margin-bottom: 14px; flex-wrap: wrap; }
+.invd-tab  {
+    padding: 5px 14px; border-radius: 6px; border: 1px solid;
+    font-size: 12px; cursor: pointer; transition: all .15s; white-space: nowrap;
+}
+
+/* ── Price Row ── */
+.invd-price-row   { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+.invd-sym         { font-size: 12px; font-family: 'SF Mono', Consolas, monospace; }
+.invd-pval        { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.invd-pchg        { font-size: 13px; font-variant-numeric: tabular-nums; padding: 2px 7px; border-radius: 4px; }
+.invd-up          { color: #3fb950; background: rgba(63,185,80,.12); }
+.invd-dn          { color: #f85149; background: rgba(248,81,73,.12); }
+
+/* ── Charts ── */
+.invd-charts      { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.invd-chart-sub   { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.invd-chart-box   { border: 1px solid; border-radius: 8px; padding: 10px 10px 6px; }
+.invd-chart-header{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.invd-chart-title { font-size: 10px; font-family: 'SF Mono', Consolas, monospace; letter-spacing: .05em; }
+.invd-canvas-wrap { position: relative; }
+.invd-legend      { display: flex; gap: 8px; flex-wrap: wrap; }
+.invd-li          {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 10px; color: #7d8590;
+}
+.invd-li::before  { content:''; display:inline-block; width:10px; height:2px; border-radius:1px; background: var(--c); }
+
+/* ── Signal Bar ── */
+.invd-signal-bar  {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid; border-radius: 8px; padding: 12px 16px; margin-bottom: 10px;
+}
+.invd-sb-label    { font-size: 11px; white-space: nowrap; }
+.invd-sb-score    { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 52px; }
+.invd-sb-meter    { flex: 1; height: 6px; border-radius: 3px; overflow: hidden; }
+.invd-sb-fill     { height: 100%; border-radius: 3px; transition: width .7s, background .5s; }
+.invd-sb-verdict  { font-size: 13px; font-weight: 600; min-width: 72px; text-align: right; }
+
+/* ── Indicators ── */
+.invd-ind-grid    { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.invd-ind-card    { border: 1px solid; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.invd-ind-name    { font-size: 10px; margin-bottom: 5px; font-family: 'SF Mono', Consolas, monospace; }
+.invd-ind-val     { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; margin-bottom: 4px; }
+.invd-ind-badge   { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 3px; }
+.invd-b-buy       { background: rgba(63,185,80,.15); color: #3fb950; }
+.invd-b-sell      { background: rgba(248,81,73,.15); color: #f85149; }
+.invd-b-neutral   { background: rgba(139,148,158,.12); color: #7d8590; }
+
+/* ── Responsive ── */
+@media (max-width: 520px) {
+    .invd-ind-grid    { grid-template-columns: repeat(2, 1fr); }
+    .invd-chart-sub   { grid-template-columns: 1fr; }
+    .invd-pval        { font-size: 22px; }
+}
+
+/* Footer */
+.invd-footer {
+    margin-top: 10px;
+    font-size: 11px;
+    text-align: right;
+}
+.invd-theme-dark  .invd-footer { color: #484f58; }
+.invd-theme-light .invd-footer { color: #94a3b8; }
+.invd-loading { opacity: .5; }
+
+/* Footer */
+.invd-footer { margin-top:10px; font-size:11px; text-align:right; }
+.invd-theme-dark  .invd-footer { color:#484f58; }
+.invd-theme-light .invd-footer { color:#94a3b8; }
+
+/* Error notice */
+.invd-error {
+    padding: 10px 14px; border-radius: 6px; font-size: 12px;
+    background: rgba(248,81,73,.1); color: #f85149;
+    border: 1px solid rgba(248,81,73,.3); margin-bottom: 10px;
+}
+/* ── Theory Panel ── */
+.invd-theory-panel {
+    border: 1px solid; border-radius: 8px; padding: 12px 14px; margin-bottom: 12px;
+}
+.invd-theme-dark  .invd-theory-panel { background: #161b22; border-color: #21262d; }
+.invd-theme-light .invd-theory-panel { background: #f8fafc; border-color: #e2e8f0; }
+
+.invd-theory-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 12px; font-weight: 600; }
+.invd-phase-badge { padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; color: #fff; }
+
+.invd-theory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.invd-theory-item { display: flex; flex-direction: column; gap: 4px; }
+.invd-theory-label { font-size: 10px; color: #7d8590; }
+.invd-theory-val { font-size: 13px; font-weight: 600; }
+
+/* ── Signal Log ── */
+.invd-log-title { font-size: 11px; font-weight: 600; color: #7d8590; margin-bottom: 6px; margin-top: 14px; }
+.invd-signal-log {
+    border: 1px solid; border-radius: 8px; max-height: 160px; overflow-y: auto;
+    font-size: 12px;
+}
+.invd-theme-dark  .invd-signal-log { background: #0d1117; border-color: #21262d; }
+.invd-theme-light .invd-signal-log { background: #ffffff; border-color: #e2e8f0; }
+
+.invd-log-empty { padding: 20px; text-align: center; color: #484f58; opacity: .6; }
+.invd-log-item {
+    display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-bottom: 1px solid;
+    animation: invd-slide-in 0.3s ease-out;
+}
+.invd-theme-dark  .invd-log-item { border-bottom-color: #21262d; }
+.invd-theme-light .invd-log-item { border-bottom-color: #f1f5f9; }
+.invd-log-item:last-child { border-bottom: none; }
+
+.invd-log-time { color: #7d8590; font-size: 10px; font-family: 'SF Mono', monospace; }
+.invd-log-badge { padding: 2px 6px; border-radius: 4px; font-weight: 600; font-size: 10px; white-space: nowrap; color: #fff; }
+.invd-log-msg { flex: 1; }
+
+@keyframes invd-slide-in { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+
+/* ── Breakout Animation ── */
+.invd-breakout-flash {
+    animation: invd-flash 1s infinite alternate;
+}
+@keyframes invd-flash {
+    from { box-shadow: 0 0 0px rgba(56, 139, 253, 0); }
+    to   { box-shadow: 0 0 15px rgba(56, 139, 253, 0.6); }
+}

@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/api/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/api/server.js"
+    }
+  ],
+  "env": {
+    "YOUTUBE_API_KEY":      "@youtube-api-key",
+    "TWITCH_CLIENT_ID":     "@twitch-client-id",
+    "TWITCH_CLIENT_SECRET": "@twitch-client-secret",
+    "REGION_CODE":          "JP",
+    "FETCH_LIMIT":          "50"
+  }
+}

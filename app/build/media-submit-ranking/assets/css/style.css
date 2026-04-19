@@ -1,0 +1,293 @@
+/* ===== Media Submit & Ranking Plugin Styles ===== */
+:root {
+  --msr-primary: #6c63ff;
+  --msr-secondary: #ff6584;
+  --msr-app: #4f9cf9;
+  --msr-mp3: #f97316;
+  --msr-bg: #f8f9ff;
+  --msr-card-bg: #ffffff;
+  --msr-border: #e2e8f0;
+  --msr-text: #1e293b;
+  --msr-muted: #64748b;
+  --msr-radius: 16px;
+  --msr-shadow: 0 4px 20px rgba(108,99,255,.08);
+}
+
+/* ===== 共通 ===== */
+.msr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+}
+.msr-btn-primary { background: var(--msr-primary); color: #fff; }
+.msr-btn-primary:hover { background: #5a52d5; transform: translateY(-1px); color:#fff; }
+.msr-btn-link { background: var(--msr-app); color: #fff; }
+.msr-btn-dl   { background: var(--msr-mp3); color: #fff; }
+.msr-btn-sm   { padding: 6px 14px; font-size: 12px; }
+
+.msr-like-btn {
+  background: transparent;
+  border: 2px solid var(--msr-border);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .2s;
+  color: var(--msr-muted);
+}
+.msr-like-btn:hover, .msr-like-btn.liked {
+  background: #fff0f3;
+  border-color: var(--msr-secondary);
+  color: var(--msr-secondary);
+}
+
+.msr-required { color: var(--msr-secondary); }
+.msr-empty { color: var(--msr-muted); text-align: center; padding: 40px; }
+
+.msr-type-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.msr-type-app { background: #dbeafe; color: #1d4ed8; }
+.msr-type-mp3 { background: #ffedd5; color: #c2410c; }
+
+/* ===== 投稿フォーム ===== */
+.msr-submit-wrap {
+  background: var(--msr-card-bg);
+  border-radius: var(--msr-radius);
+  padding: 32px;
+  box-shadow: var(--msr-shadow);
+  max-width: 640px;
+}
+.msr-form-title { font-size: 1.5rem; margin-bottom: 24px; color: var(--msr-text); }
+
+.msr-field { margin-bottom: 20px; }
+.msr-field label {
+  display: block;
+  font-weight: 600;
+  color: var(--msr-text);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.msr-field input[type="text"],
+.msr-field input[type="url"],
+.msr-field input[type="email"],
+.msr-field textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--msr-border);
+  border-radius: 10px;
+  font-size: 14px;
+  transition: border-color .2s;
+  box-sizing: border-box;
+}
+.msr-field input:focus, .msr-field textarea:focus {
+  outline: none;
+  border-color: var(--msr-primary);
+}
+.msr-field textarea { resize: vertical; }
+
+/* タイプ切り替え */
+.msr-type-toggle { display: flex; gap: 12px; }
+.msr-toggle-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border: 2px solid var(--msr-border);
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all .2s;
+  background: #fff;
+}
+.msr-toggle-btn input { display: none; }
+.msr-toggle-btn.active { border-color: var(--msr-primary); background: #f0eeff; color: var(--msr-primary); }
+
+/* ファイルドロップ */
+.msr-file-drop {
+  border: 2px dashed var(--msr-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s;
+  color: var(--msr-muted);
+}
+.msr-file-drop:hover, .msr-file-drop.drag-over {
+  border-color: var(--msr-primary);
+  background: #f0eeff;
+  color: var(--msr-primary);
+}
+.msr-file-name { font-size: 13px; color: var(--msr-primary); margin-top: 8px; font-weight: 600; }
+
+/* アラート */
+.msr-alert {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.msr-alert.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.msr-alert.error   { background: #fff5f5; color: #c53030; border: 1px solid #fed7d7; }
+
+/* ===== ランキング ===== */
+.msr-ranking-wrap {
+  background: var(--msr-card-bg);
+  border-radius: var(--msr-radius);
+  padding: 28px;
+  box-shadow: var(--msr-shadow);
+}
+.msr-ranking-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.msr-ranking-header h2 { margin: 0; font-size: 1.4rem; }
+.msr-ranking-by { font-size: .9rem; color: var(--msr-muted); font-weight: 400; }
+
+.msr-ranking-tabs { display: flex; gap: 8px; }
+.msr-tab {
+  padding: 6px 16px;
+  border: 2px solid var(--msr-border);
+  border-radius: 50px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+}
+.msr-tab.active { background: var(--msr-primary); color: #fff; border-color: var(--msr-primary); }
+
+/* ランキングアイテム */
+.msr-rank-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--msr-border);
+  transition: background .15s;
+}
+.msr-rank-item:last-child { border-bottom: none; }
+.msr-rank-item:hover { background: var(--msr-bg); border-radius: 10px; padding-left: 10px; padding-right: 10px; }
+
+.msr-rank-medal { font-size: 1.6rem; width: 36px; text-align: center; flex-shrink: 0; }
+
+.msr-rank-thumb { flex-shrink: 0; }
+.msr-rank-thumb img { width: 60px; height: 60px; object-fit: cover; border-radius: 10px; }
+.msr-thumb-placeholder {
+  width: 60px;
+  height: 60px;
+  background: var(--msr-bg);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+.msr-thumb-placeholder.large { width: 100%; height: 140px; font-size: 3rem; }
+
+.msr-rank-info { flex: 1; min-width: 0; }
+.msr-rank-title { font-weight: 700; font-size: 15px; color: var(--msr-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.msr-rank-meta { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.msr-author { font-size: 12px; color: var(--msr-muted); }
+
+.msr-rank-stats { text-align: right; }
+.msr-score-main { font-size: 15px; font-weight: 700; color: var(--msr-primary); }
+.msr-score-sub { font-size: 12px; color: var(--msr-muted); display: flex; gap: 8px; justify-content: flex-end; margin-top: 2px; }
+
+.msr-rank-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+/* ===== カード一覧 ===== */
+.msr-list-wrap { }
+.msr-filter-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+.msr-filter {
+  padding: 8px 18px;
+  border: 2px solid var(--msr-border);
+  border-radius: 50px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+}
+.msr-filter.active { background: var(--msr-primary); color: #fff; border-color: var(--msr-primary); }
+
+.msr-grid {
+  display: grid;
+  gap: 20px;
+}
+.msr-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.msr-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.msr-cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 768px) {
+  .msr-cols-2, .msr-cols-3, .msr-cols-4 { grid-template-columns: 1fr; }
+}
+
+.msr-card {
+  background: var(--msr-card-bg);
+  border-radius: var(--msr-radius);
+  overflow: hidden;
+  box-shadow: var(--msr-shadow);
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+}
+.msr-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(108,99,255,.15); }
+
+.msr-card-thumb {
+  position: relative;
+  height: 160px;
+  background: var(--msr-bg);
+  overflow: hidden;
+}
+.msr-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.msr-card-thumb .msr-type-badge { position: absolute; top: 10px; left: 10px; }
+
+.msr-card-body { padding: 16px; flex: 1; }
+.msr-card-title { font-size: 15px; font-weight: 700; margin: 0 0 6px; color: var(--msr-text); }
+.msr-card-desc { font-size: 13px; color: var(--msr-muted); margin: 0 0 8px; line-height: 1.5; }
+.msr-card-author { font-size: 12px; color: var(--msr-muted); }
+
+.msr-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid var(--msr-border);
+}
+.msr-card-stats { display: flex; gap: 12px; font-size: 13px; color: var(--msr-muted); }
+.msr-card-actions { display: flex; gap: 8px; align-items: center; }
+
+/* ===== MP3プレーヤー ===== */
+.msr-player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1e293b;
+  color: #fff;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0,0,0,.3);
+  transform: translateY(100%);
+  transition: transform .3s;
+}
+.msr-player-bar.active { transform: translateY(0); }
+.msr-player-title { flex: 1; font-weight: 600; font-size: 14px; }
+.msr-player-bar audio { flex: 2; }
+.msr-player-close { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }

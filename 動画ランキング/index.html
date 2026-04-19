@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="YouTube・Twitch・ニコニコ動画の急上昇ランキングを毎日チェック。プラットフォームをまたいだ総合ランキングも確認できます。" />
+  <title>急上昇ランキング — Trending Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── リセット & 変数 ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #0a0a0f;
+      --bg2:         #11111a;
+      --bg3:         #1a1a28;
+      --surface:     rgba(255, 255, 255, 0.04);
+      --surface2:    rgba(255, 255, 255, 0.07);
+      --border:      rgba(255, 255, 255, 0.08);
+      --border2:     rgba(255, 255, 255, 0.14);
+      --text:        #f0f0f8;
+      --text2:       #9090b0;
+      --text3:       #5a5a7a;
+      --accent:      #7c6eea;
+      --accent2:     #a78bfa;
+      --yt:          #ff4040;
+      --tw:          #9147ff;
+      --nc:          #ffe66d;
+      --up:          #34d399;
+      --down:        #f87171;
+      --new:         #60a5fa;
+      --glow-yt:     0 0 30px rgba(255, 64, 64, 0.25);
+      --glow-tw:     0 0 30px rgba(145, 71, 255, 0.25);
+      --glow-nc:     0 0 30px rgba(255, 230, 109, 0.2);
+      --glow-all:    0 0 30px rgba(124, 110, 234, 0.25);
+      --radius:      14px;
+      --radius-sm:   8px;
+      --trans:       0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── 背景グロー ────────────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(124, 110, 234, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(255, 64, 64, 0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── ヘッダー ──────────────────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--accent2), #f0abfc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      flex-shrink: 0;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* 日付セレクター */
+    .date-selector {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .date-selector label {
+      font-size: 0.8rem;
+      color: var(--text2);
+      font-weight: 500;
+    }
+
+    #date-select {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: border-color var(--trans);
+      outline: none;
+    }
+
+    #date-select:focus {
+      border-color: var(--accent);
+    }
+
+    #date-select option {
+      background: var(--bg2);
+    }
+
+    /* ── メイン ────────────────────────────────────────────────────── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* ── サマリーカード ─────────────────────────────────────────────── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: transform var(--trans), box-shadow var(--trans);
+    }
+
+    .summary-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .summary-card.yt { border-color: rgba(255, 64, 64, 0.3); box-shadow: var(--glow-yt); }
+    .summary-card.tw { border-color: rgba(145, 71, 255, 0.3); box-shadow: var(--glow-tw); }
+    .summary-card.nc { border-color: rgba(255, 230, 109, 0.25); box-shadow: var(--glow-nc); }
+    .summary-card.all { border-color: rgba(124, 110, 234, 0.3); box-shadow: var(--glow-all); }
+
+    .summary-platform {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text2);
+    }
+
+    .platform-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .yt .platform-dot { background: var(--yt); }
+    .tw .platform-dot { background: var(--tw); }
+    .nc .platform-dot { background: var(--nc); }
+    .all .platform-dot { background: var(--accent); }
+
+    .summary-count {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .yt .summary-count { color: var(--yt); }
+    .tw .summary-count { color: var(--tw); }
+    .nc .summary-count { color: var(--nc); }
+    .all .summary-count { color: var(--accent2); }
+
+    .summary-label { font-size: 0.78rem; color: var(--text3); }
+
+    /* ── プラットフォームタブ ───────────────────────────────────────── */
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      background: var(--surface);
+      color: var(--text2);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--trans);
+      outline: none;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--border2);
+      color: var(--text);
+      background: var(--surface2);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .tab-btn[data-platform="all"].active    { background: linear-gradient(135deg, var(--accent), #a855f7); }
+    .tab-btn[data-platform="youtube"].active { background: linear-gradient(135deg, #ff4040, #ff6060); }
+    .tab-btn[data-platform="twitch"].active  { background: linear-gradient(135deg, #7c3aed, #9147ff); }
+    .tab-btn[data-platform="niconico"].active { background: linear-gradient(135deg, #b8860b, #d4a017); color: #1a1a00; }
+
+    .tab-icon { font-size: 1rem; }
+
+    /* ── ランキングリスト ────────────────────────────────────────────── */
+    .ranking-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .rank-card {
+      display: grid;
+      grid-template-columns: 3rem 6rem 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.875rem 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--trans);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rank-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transition: transform var(--trans);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .rank-card:hover {
+      border-color: var(--border2);
+      background: var(--surface2);
+      transform: translateX(3px);
+    }
+
+    .rank-card:hover::before { transform: scaleY(1); }
+
+    /* 1〜3位にゴールド・シルバー・ブロンズ */
+    .rank-card[data-rank="1"]::before { background: #ffd700; }
+    .rank-card[data-rank="2"]::before { background: #c0c0c0; }
+    .rank-card[data-rank="3"]::before { background: #cd7f32; }
+
+    /* 順位番号 */
+    .rank-num {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-align: center;
+      line-height: 1;
+      color: var(--text2);
+    }
+
+    .rank-card[data-rank="1"] .rank-num { color: #ffd700; font-size: 1.6rem; }
+    .rank-card[data-rank="2"] .rank-num { color: #c0c0c0; font-size: 1.5rem; }
+    .rank-card[data-rank="3"] .rank-num { color: #cd7f32; font-size: 1.45rem; }
+
+    /* サムネイル */
+    .rank-thumb {
+      width: 96px;
+      height: 54px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background: var(--bg3);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .rank-thumb-placeholder {
+      width: 96px;
+      height: 54px;
+      border-radius: var(--radius-sm);
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    /* タイトル・チャンネル */
+    .rank-info {
+      min-width: 0;
+    }
+
+    .rank-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.25rem;
+    }
+
+    .rank-channel {
+      font-size: 0.78rem;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .platform-badge.youtube  { background: rgba(255, 64, 64, 0.2); color: var(--yt); }
+    .platform-badge.twitch   { background: rgba(145, 71, 255, 0.2); color: var(--tw); }
+    .platform-badge.niconico { background: rgba(255, 230, 109, 0.2); color: var(--nc); }
+
+    /* 右側: 再生数・変動 */
+    .rank-stats {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      flex-shrink: 0;
+    }
+
+    .rank-views {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .rank-diff {
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.25rem;
+    }
+
+    .diff-new  { color: var(--new); }
+    .diff-up   { color: var(--up); }
+    .diff-down { color: var(--down); }
+    .diff-same { color: var(--text3); }
+
+    /* ── ローディング ────────────────────────────────────────────────── */
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 5rem 0;
+      color: var(--text2);
+    }
+
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── エラー ──────────────────────────────────────────────────────── */
+    .error-box {
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      color: var(--down);
+    }
+
+    .error-box p { color: var(--text2); margin-top: 0.5rem; font-size: 0.88rem; }
+
+    /* ── 空状態 ──────────────────────────────────────────────────────── */
+    .empty-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 4rem;
+      text-align: center;
+      color: var(--text2);
+    }
+
+    .empty-box .empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+    /* ── フッター ──────────────────────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--text3);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    /* ── アニメーション入場 ─────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .rank-card {
+      animation: fadeUp 0.3s ease both;
+    }
+
+    /* ── レスポンシブ ────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .rank-card {
+        grid-template-columns: 2.5rem 1fr auto;
+        grid-template-rows: auto auto;
+      }
+
+      .rank-thumb-wrap {
+        display: none;
+      }
+
+      .header-inner {
+        gap: 0.5rem;
+      }
+
+      .logo span.logo-text { display: none; }
+
+      .summary-count { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">🏆</div>
+      <span class="logo-text">Trending Now</span>
+    </div>
+
+    <div class="date-selector">
+      <label for="date-select">📅</label>
+      <select id="date-select" aria-label="日付を選択"></select>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- サマリーカード -->
+  <div class="summary-grid" id="summary-grid">
+    <div class="summary-card all">
+      <div class="summary-platform"><span class="platform-dot"></span>総合</div>
+      <div class="summary-count" id="summary-all-count">—</div>
+      <div class="summary-label">件取得済み</div>
+    </div>
+    <div class="summary-card yt">
+      <div class="summary-platform"><span class="platform-dot"></span>YouTube</div>
+      <div class="summary-count" id="summary-yt-count">—</div>
+      <div class="summary-label">件</div>
+    </div>
+    <div class="summary-card tw">
+      <div class="summary-platform"><span class="platform-dot"></span>Twitch</div>
+      <div class="summary-count" id="summary-tw-count">—</div>
+      <div class="summary-label">件</div>
+    </div>
+    <div class="summary-card nc">
+      <div class="summary-platform"><span class="platform-dot"></span>ニコニコ</div>
+      <div class="summary-count" id="summary-nc-count">—</div>
+      <div class="summary-label">件</div>
+    </div>
+  </div>
+
+  <!-- プラットフォームタブ -->
+  <div class="tabs" role="tablist" aria-label="プラットフォーム選択">
+    <button class="tab-btn active" id="tab-all"      data-platform="all"      role="tab" aria-selected="true">
+      <span class="tab-icon">🏆</span> 総合
+    </button>
+    <button class="tab-btn"        id="tab-youtube"  data-platform="youtube"  role="tab" aria-selected="false">
+      <span class="tab-icon">▶️</span> YouTube
+    </button>
+    <button class="tab-btn"        id="tab-twitch"   data-platform="twitch"   role="tab" aria-selected="false">
+      <span class="tab-icon">🎮</span> Twitch
+    </button>
+    <button class="tab-btn"        id="tab-niconico" data-platform="niconico" role="tab" aria-selected="false">
+      <span class="tab-icon">🎌</span> ニコニコ
+    </button>
+  </div>
+
+  <!-- ランキングリスト -->
+  <div id="ranking-container" role="list" aria-label="ランキング一覧">
+    <div class="loading">
+      <div class="spinner"></div>
+      <span>データを読み込み中...</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2025 Trending Now — YouTube・Twitch・ニコニコ動画の急上昇データを毎日自動収集</p>
+</footer>
+
+<script>
+// ── 設定 ─────────────────────────────────────────────────────────────────
+// 本番では環境変数や設定ファイルから読み込む
+const API_BASE   = window.location.hostname === 'localhost'
+  ? 'http://localhost:3000'
+  : '';  // 同一オリジンにデプロイする場合は空文字
+
+// ── 状態 ────────────────────────────────────────────────────────────────
+let currentDate     = '';
+let currentPlatform = 'all';
+let abortController = null;
+
+// ── 数値フォーマット ──────────────────────────────────────────────────────
+function fmtNum(n) {
+  if (!n || isNaN(n)) return '—';
+  const v = Number(n);
+  if (v >= 100_000_000) return (v / 100_000_000).toFixed(1) + '億';
+  if (v >= 10_000) return Math.round(v / 10_000) + '万';
+  return v.toLocaleString('ja-JP');
+}
+
+// ── プラットフォームメタ ──────────────────────────────────────────────────
+const PLATFORM = {
+  youtube:  { label: 'YouTube',  icon: '▶️',  urlKey: 'url' },
+  twitch:   { label: 'Twitch',   icon: '🎮', urlKey: 'url' },
+  niconico: { label: 'ニコニコ', icon: '🎌', urlKey: 'url' },
+};
+
+// ── 変動バッジ ────────────────────────────────────────────────────────────
+function diffBadge(type, value) {
+  if (type === 'new')  return `<span class="rank-diff diff-new">✦ NEW</span>`;
+  if (type === 'up')   return `<span class="rank-diff diff-up">▲ ${value}</span>`;
+  if (type === 'down') return `<span class="rank-diff diff-down">▼ ${Math.abs(value)}</span>`;
+  return `<span class="rank-diff diff-same">— —</span>`;
+}
+
+// ── ランキングカード HTML ──────────────────────────────────────────────────
+function buildCard(item, displayRank) {
+  const rank  = displayRank ?? item.overall_rank ?? item.rank ?? 0;
+  const title = (item.title || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const ch    = (item.channel || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const url   = item.url || '#';
+
+  const thumbHtml = item.thumbnail
+    ? `<img class="rank-thumb" src="${item.thumbnail}" alt="${title}" loading="lazy" onerror="this.style.display='none';this.nextSibling.style.display='flex'" /><div class="rank-thumb-placeholder" style="display:none">${PLATFORM[item.platform]?.icon ?? '🎬'}</div>`
+    : `<div class="rank-thumb-placeholder">${PLATFORM[item.platform]?.icon ?? '🎬'}</div>`;
+
+  const badgeClass = item.platform;
+  const platformLabel = PLATFORM[item.platform]?.label ?? item.platform;
+
+  const diff = diffBadge(item.diff_type, item.diff_value);
+  const views = fmtNum(item.view_count);
+
+  return `
+    <a class="rank-card" href="${url}" target="_blank" rel="noopener noreferrer"
+       data-rank="${rank}" role="listitem"
+       aria-label="第${rank}位: ${title} (${platformLabel})">
+      <div class="rank-num">#${rank}</div>
+      <div class="rank-thumb-wrap">${thumbHtml}</div>
+      <div class="rank-info">
+        <div class="rank-title">${title}</div>
+        <div class="rank-channel">
+          <span class="platform-badge ${badgeClass}">${platformLabel}</span>
+          ${ch}
+        </div>
+      </div>
+      <div class="rank-stats">
+        <div class="rank-views">👁 ${views}</div>
+        ${diff}
+      </div>
+    </a>
+  `;
+}
+
+// ── API コール ────────────────────────────────────────────────────────────
+async function apiFetch(path) {
+  if (abortController) abortController.abort();
+  abortController = new AbortController();
+  const res = await fetch(`${API_BASE}${path}`, { signal: abortController.signal });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+// ── 日付リスト取得 ────────────────────────────────────────────────────────
+async function loadDates() {
+  try {
+    const json = await apiFetch('/api/dates');
+    const dates = json.data ?? [];
+
+    const sel = document.getElementById('date-select');
+    sel.innerHTML = '';
+
+    if (!dates.length) {
+      sel.innerHTML = '<option value="">データなし</option>';
+      return;
+    }
+
+    dates.forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d.date;
+      opt.textContent = `${d.date} (${d.count}件)`;
+      sel.appendChild(opt);
+    });
+
+    currentDate = dates[0].date;
+    sel.value = currentDate;
+  } catch (e) {
+    if (e.name === 'AbortError') return;
+    console.error('日付取得失敗:', e);
+    document.getElementById('date-select').innerHTML = '<option value="">—</option>';
+  }
+}
+
+// ── サマリー取得・表示 ─────────────────────────────────────────────────────
+async function loadSummary(date) {
+  try {
+    const json = await apiFetch(`/api/summary?date=${date}`);
+    const { total, by_platform } = json.data ?? {};
+
+    document.getElementById('summary-all-count').textContent =
+      fmtNum(total?.video_count) ?? '—';
+
+    const map = {};
+    (by_platform ?? []).forEach(p => { map[p.platform] = p; });
+    document.getElementById('summary-yt-count').textContent = map.youtube?.video_count  ?? '0';
+    document.getElementById('summary-tw-count').textContent = map.twitch?.video_count   ?? '0';
+    document.getElementById('summary-nc-count').textContent = map.niconico?.video_count ?? '0';
+  } catch (e) {
+    if (e.name === 'AbortError') return;
+    console.error('サマリー取得失敗:', e);
+  }
+}
+
+// ── ランキング取得・表示 ───────────────────────────────────────────────────
+async function loadRanking(date, platform) {
+  const container = document.getElementById('ranking-container');
+  container.innerHTML = `<div class="loading"><div class="spinner"></div><span>読み込み中...</span></div>`;
+
+  try {
+    const qs  = platform === 'all' ? '' : `&platform=${platform}`;
+    const json = await apiFetch(`/api/ranking?date=${date}&limit=100${qs}`);
+    const items = json.data ?? [];
+
+    if (!items.length) {
+      container.innerHTML = `
+        <div class="empty-box">
+          <div class="empty-icon">📭</div>
+          <div>この日付のデータがありません</div>
+          <small style="color:var(--text3);margin-top:.5rem;display:block">
+            <code>node src/index.js ${date}</code> でデータを取得してください
+          </small>
+        </div>`;
+      return;
+    }
+
+    const html = items.map((item, i) =>
+      buildCard(item, item.overall_rank ?? (i + 1))
+    ).join('');
+
+    container.innerHTML = `<div class="ranking-list" role="list">${html}</div>`;
+
+    // アニメーション遅延
+    container.querySelectorAll('.rank-card').forEach((el, i) => {
+      el.style.animationDelay = `${i * 0.03}s`;
+    });
+
+  } catch (e) {
+    if (e.name === 'AbortError') return;
+    console.error('ランキング取得失敗:', e);
+    container.innerHTML = `
+      <div class="error-box">
+        <strong>⚠️ データの読み込みに失敗しました</strong>
+        <p>${e.message}</p>
+        <p>APIサーバーが起動しているか確認してください: <code>npm run dev</code></p>
+      </div>`;
+  }
+}
+
+// ── イベント ──────────────────────────────────────────────────────────────
+function refresh() {
+  if (!currentDate) return;
+  loadSummary(currentDate);
+  loadRanking(currentDate, currentPlatform);
+}
+
+document.getElementById('date-select').addEventListener('change', e => {
+  currentDate = e.target.value;
+  refresh();
+});
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    currentPlatform = btn.dataset.platform;
+    refresh();
+  });
+});
+
+// ── 初期化 ────────────────────────────────────────────────────────────────
+(async () => {
+  await loadDates();
+  refresh();
+})();
+</script>
+</body>
+</html>

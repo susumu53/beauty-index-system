@@ -1,0 +1,119 @@
+/* FX Desk v3.0 */
+#fxdesk{
+  --bg:#07090d;--card:#0d1117;--card2:#161b22;
+  --border:#21262d;--border2:#30363d;
+  --text:#e6edf3;--dim:#8b949e;--muted:#484f58;
+  --green:#3fb950;--blue:#58a6ff;--orange:#f0883e;
+  --red:#f85149;--yellow:#d29922;--purple:#bc8cff;
+  --font:'JetBrains Mono','Noto Sans JP',monospace;
+  font-family:var(--font);font-size:13px;color:var(--text);
+  background:var(--bg);border-radius:12px;overflow:hidden;
+  max-width:900px;margin:0 auto;
+  box-shadow:0 0 0 1px var(--border),0 16px 48px rgba(0,0,0,.6);
+}
+#fxdesk *{box-sizing:border-box;margin:0;padding:0}
+#fxdesk ::-webkit-scrollbar{width:3px;height:3px}
+#fxdesk ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+#fxdesk .fx-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--card);border-bottom:1px solid var(--border)}
+#fxdesk .fx-logo{font-size:15px;font-weight:700;letter-spacing:.12em;color:var(--green)}
+#fxdesk .fx-session-badge{font-size:10px;padding:2px 9px;border-radius:4px;font-weight:700;margin-left:10px}
+#fxdesk .fx-clock{font-size:19px;font-weight:700;letter-spacing:.05em;font-variant-numeric:tabular-nums}
+#fxdesk .fx-clock-label{font-size:9px;color:var(--muted);margin-right:5px}
+#fxdesk .fx-nav{display:flex;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto}
+#fxdesk .fx-nav button{padding:10px 13px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer;white-space:nowrap;font-size:12px;font-family:var(--font);transition:all .15s}
+#fxdesk .fx-nav button.active{color:var(--green);border-bottom-color:var(--green);font-weight:700}
+#fxdesk .fx-nav button:hover{color:var(--text)}
+#fxdesk .fx-main{padding:14px;overflow-y:auto;max-height:82vh}
+#fxdesk .fx-tab{display:none}
+#fxdesk .fx-tab.active{display:block}
+#fxdesk .fx-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px}
+#fxdesk .fx-lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;display:block}
+#fxdesk .fx-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){#fxdesk .fx-grid2{grid-template-columns:1fr}}
+#fxdesk .fx-sched-row{display:flex;gap:8px;align-items:flex-start;padding:7px 8px;border-radius:7px;border-left:2px solid transparent}
+#fxdesk .fx-sched-row.is-past{opacity:.35}
+#fxdesk .fx-sched-time{width:44px;font-weight:700;font-size:12px;flex-shrink:0}
+#fxdesk .fx-sched-dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+#fxdesk .fx-sched-detail{font-size:11px;color:var(--muted);margin-top:2px}
+#fxdesk .fx-sched-imp{font-size:10px;font-weight:700;flex-shrink:0;margin-left:auto;padding-left:8px}
+#fxdesk .fx-price-val{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;margin:4px 0}
+#fxdesk .fx-status{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+#fxdesk .fx-status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+#fxdesk .fx-status-dot.pulsing{animation:fx-pulse 1.5s infinite}
+@keyframes fx-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+#fxdesk .fx-cd{font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(63,185,80,.1);color:var(--green);font-weight:700}
+#fxdesk input,#fxdesk select{background:var(--card2);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:7px 10px;font-size:13px;width:100%;font-family:var(--font);outline:none}
+#fxdesk input:focus,#fxdesk select:focus{border-color:var(--green)}
+#fxdesk select option{background:#161b22;color:var(--text)}
+#fxdesk input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.6);cursor:pointer}
+#fxdesk .fx-btn{background:var(--green);color:#000;border:none;border-radius:6px;padding:8px 16px;cursor:pointer;font-weight:700;font-size:13px;font-family:var(--font)}
+#fxdesk .fx-btn:hover{opacity:.85}
+#fxdesk .fx-btn:disabled{opacity:.4;cursor:not-allowed}
+#fxdesk .fx-btn-sm{background:transparent;color:var(--dim);border:1px solid var(--border);border-radius:5px;padding:3px 10px;cursor:pointer;font-size:11px;font-family:var(--font)}
+#fxdesk .fx-btn-sm:hover{opacity:.75}
+#fxdesk .fx-dir-badge{font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700}
+#fxdesk .fx-badge-buy{background:rgba(63,185,80,.15);color:var(--green)}
+#fxdesk .fx-badge-sell{background:rgba(248,81,73,.15);color:var(--red)}
+#fxdesk .fx-alert-on{color:var(--orange)!important;border-color:var(--orange)!important;background:rgba(240,136,62,.1)!important}
+#fxdesk .fx-summary{display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center;gap:10px}
+#fxdesk .fx-summary-val{font-size:17px;font-weight:700;margin-top:3px}
+#fxdesk .fx-note-api{color:var(--muted);font-size:10px;margin-top:8px;text-align:center;line-height:1.6}
+/* ── シグナルタブ ── */
+#fxdesk .sx-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap}
+#fxdesk .sx-lhd{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#fxdesk .sx-pair-sel{font-size:17px;font-weight:700;border:none;background:none;color:var(--text);cursor:pointer;outline:none;padding:2px 4px 2px 0;font-family:var(--font);width:auto}
+#fxdesk .sx-badge{font-size:10px;padding:2px 7px;border-radius:10px;background:rgba(63,185,80,.12);color:var(--green);font-weight:700;white-space:nowrap}
+#fxdesk .sx-pinfo{text-align:right}
+#fxdesk .sx-pv{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
+#fxdesk .sx-pc{font-size:12px;margin-top:1px}
+#fxdesk .sx-up{color:var(--green)}
+#fxdesk .sx-down{color:var(--red)}
+#fxdesk .sx-tf-row{display:flex;gap:4px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+#fxdesk .sx-tfb{padding:4px 9px;font-size:11px;border:0.5px solid var(--border2);border-radius:5px;background:none;cursor:pointer;color:var(--muted);transition:all .15s;font-family:var(--font)}
+#fxdesk .sx-tfb.act{background:var(--blue);color:#fff;border-color:var(--blue)}
+#fxdesk .sx-tfb:hover:not(.act){color:var(--text);border-color:var(--dim)}
+#fxdesk .sx-spacer{flex:1}
+#fxdesk .sx-ref-btn{padding:5px 12px;font-size:12px;border:0.5px solid var(--border2);border-radius:8px;background:none;cursor:pointer;color:var(--dim);display:flex;align-items:center;gap:4px;font-family:var(--font)}
+#fxdesk .sx-ref-btn:hover{background:rgba(255,255,255,.04);color:var(--text)}
+#fxdesk .sx-spin{display:inline-block;animation:sx-spin .6s linear infinite}
+@keyframes sx-spin{to{transform:rotate(360deg)}}
+#fxdesk .sx-chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+#fxdesk .sx-leg{display:flex;gap:10px;font-size:10px;color:var(--dim);margin-bottom:6px;flex-wrap:wrap;align-items:center}
+#fxdesk .sx-leg span{display:flex;align-items:center;gap:3px}
+#fxdesk .sx-ll{display:inline-block;width:14px;height:2px;vertical-align:middle}
+#fxdesk .sx-la{display:inline-block;width:10px;height:8px;border:0.5px solid rgba(88,166,255,.35);background:rgba(88,166,255,.1);vertical-align:middle;border-radius:2px}
+#fxdesk .sx-ch-lbl{font-size:10px;color:var(--muted);margin-bottom:2px;margin-top:8px}
+#fxdesk .sx-cw{position:relative;height:200px}
+#fxdesk .sx-cw2{position:relative;height:75px}
+#fxdesk .sx-err{text-align:center;padding:40px 16px;color:var(--muted);font-size:12px;line-height:1.7}
+#fxdesk .sx-sec{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+#fxdesk .sx-ov{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--card);margin-bottom:10px}
+#fxdesk .sx-ov-sig{font-size:15px;font-weight:700;min-width:100px}
+#fxdesk .sx-track{flex:1;display:flex;height:7px;border-radius:4px;overflow:hidden;gap:1px}
+#fxdesk .sx-tbuy{background:var(--green);border-radius:4px 0 0 4px;transition:flex .4s ease}
+#fxdesk .sx-tneu{background:var(--muted);transition:flex .4s ease}
+#fxdesk .sx-tsell{background:var(--red);border-radius:0 4px 4px 0;transition:flex .4s ease}
+#fxdesk .sx-ct{font-size:11px;color:var(--muted);white-space:nowrap}
+#fxdesk .sx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:7px;margin-bottom:10px}
+#fxdesk .sx-scard{border-radius:10px;padding:10px 12px;background:var(--card);border:0.5px solid var(--border);border-left:3px solid var(--muted);cursor:pointer;transition:border-color .15s,background .15s}
+#fxdesk .sx-scard:hover{background:var(--card2);border-left-width:3px}
+#fxdesk .sx-scard.buy{border-left-color:var(--green)}
+#fxdesk .sx-scard.sell{border-left-color:var(--red)}
+#fxdesk .sx-scard.neutral{border-left-color:var(--muted)}
+#fxdesk .sx-sn{font-size:10px;color:var(--dim);margin-bottom:3px}
+#fxdesk .sx-sv{font-size:13px;font-weight:700;margin-bottom:2px}
+#fxdesk .sx-sv.buy{color:var(--green)}
+#fxdesk .sx-sv.sell{color:var(--red)}
+#fxdesk .sx-sv.neutral{color:var(--muted)}
+#fxdesk .sx-sr{font-size:10px;color:var(--muted);line-height:1.4}
+#fxdesk .sx-hint{font-size:9px;color:var(--muted);margin-top:5px;opacity:.7}
+#fxdesk .sx-doc-panel{background:var(--card2);border:1px solid var(--border2);border-radius:10px;padding:14px;margin-bottom:10px;display:none}
+#fxdesk .sx-doc-panel.open{display:block;animation:sx-fadein .2s ease}
+@keyframes sx-fadein{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+#fxdesk .sx-doc-panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+#fxdesk .sx-doc-title{font-size:14px;font-weight:700;color:var(--text)}
+#fxdesk .sx-doc-close{background:none;border:1px solid var(--border);border-radius:4px;padding:2px 9px;color:var(--muted);cursor:pointer;font-size:11px;font-family:var(--font)}
+#fxdesk .sx-doc-sec{font-size:10px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.07em;margin-top:10px;margin-bottom:3px}
+#fxdesk .sx-doc-sec:first-child{margin-top:0}
+#fxdesk .sx-doc-txt{font-size:11px;color:var(--dim);line-height:1.75}
+#fxdesk .sx-disc{font-size:10px;color:var(--muted);text-align:center;margin-top:4px;line-height:1.6}
