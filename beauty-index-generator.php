@@ -38,17 +38,19 @@ class AI_Beauty_Portal {
     }
 
     public function enqueue_assets() {
-        wp_enqueue_style('beauty-portal-css', false);
+        wp_register_style('beauty-portal-css', false);
+        wp_enqueue_style('beauty-portal-css');
         wp_add_inline_style('beauty-portal-css', "
-            .beauty-portal-card { background: #1a1a1a; color: #fff; padding: 30px; border-radius: 15px; border: 1px solid #ff2d55; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(255,45,85,0.2); }
-            .beauty-portal-form h2 { color: #ff2d55; margin-top: 0; }
-            .beauty-input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #444; background: #222; color: #fff; }
+            .beauty-portal-card { background: #ffffff; color: #333; padding: 30px; border-radius: 15px; border: 2px solid #ff2d55; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(255,45,85,0.1); }
+            .beauty-portal-form h2 { color: #ff2d55; margin-top: 0; font-weight: bold; }
+            .beauty-input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #333; }
             .beauty-submit { background: linear-gradient(45deg, #ff2d55, #ff7171); color: white; border: none; padding: 15px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; width: 100%; transition: transform 0.2s; }
             .beauty-submit:hover { transform: scale(1.02); }
             .beauty-submit:disabled { background: #555; cursor: not-allowed; }
             #beauty-result { margin-top: 15px; font-weight: bold; text-align: center; }
             .beauty-ranking-section { margin-top: 40px; border-top: 1px solid #333; padding-top: 30px; }
         ");
+        wp_enqueue_script('jquery');
     }
 
     public function render_settings_page() {
@@ -58,9 +60,9 @@ class AI_Beauty_Portal {
             <form method="post" action="options.php">
                 <?php settings_fields('beauty_portal_settings'); do_settings_sections('beauty-portal-settings'); ?>
                 <table class="form-table">
-                    <tr><th>GitHub 所有者</th><td><input type="text" name="beauty_gh_owner" value="<?php echo esc_attr(get_option('beauty_gh_owner')); ?>" class="regular-text"></td></tr>
-                    <tr><th>リポジトリ名</th><td><input type="text" name="beauty_gh_repo" value="<?php echo esc_attr(get_option('beauty_gh_repo')); ?>" class="regular-text"></td></tr>
-                    <tr><th>GitHub トークン (PAT)</th><td><input type="password" name="beauty_gh_token" value="<?php echo esc_attr(get_option('beauty_gh_token')); ?>" class="regular-text"></td></tr>
+                    <tr><th>GitHub 所有者</th><td><input type="text" name="beauty_gh_owner" value="<?php echo esc_attr(get_option('beauty_gh_owner', 'susumu53')); ?>" class="regular-text"></td></tr>
+                    <tr><th>リポジトリ名</th><td><input type="text" name="beauty_gh_repo" value="<?php echo esc_attr(get_option('beauty_gh_repo', 'beauty-index-system')); ?>" class="regular-text"></td></tr>
+                    <tr><th>GitHub トークン (PAT)</th><td><input type="password" name="beauty_gh_token" value="<?php echo esc_attr(get_option('beauty_gh_token')); ?>" class="regular-text"><br><small>※すでに動作している場合は空欄でも問題ありませんが、必要に応じて設定してください。</small></td></tr>
                     <tr><th>解析記事 判別タグID</th><td><input type="text" name="beauty_analysis_tag_id" value="<?php echo esc_attr(get_option('beauty_analysis_tag_id', '999')); ?>" class="small-text"><br><small>Python側で付与しているタグIDと一致させてください。</small></td></tr>
                 </table>
                 <?php submit_button(); ?>
@@ -106,7 +108,7 @@ class AI_Beauty_Portal {
                 const result = $('#beauty-result');
                 
                 btn.prop('disabled', true).text('リクエスト送信中...');
-                result.text('').css('color', '#fff');
+                result.text('').css('color', '#333');
 
                 $.ajax({
                     url: '<?php echo admin_url('admin-ajax.php'); ?>',
@@ -119,15 +121,15 @@ class AI_Beauty_Portal {
                     },
                     success: function(response) {
                         if (response.success) {
-                            result.text(response.data.message).css('color', '#00ff00');
+                            result.text(response.data.message).css('color', '#ff2d55').css('font-weight', 'bold');
                             btn.text('送信完了');
                         } else {
-                            result.text(response.data.message).css('color', '#ff4444');
+                            result.text(response.data.message).css('color', '#e60000');
                             btn.prop('disabled', false).text('解析を開始する');
                         }
                     },
                     error: function() {
-                        result.text('サーバー通信エラーが発生しました。').css('color', '#ff4444');
+                        result.text('サーバー通信エラーが発生しました。').css('color', '#e60000');
                         btn.prop('disabled', false).text('解析を開始する');
                     }
                 });
@@ -183,21 +185,10 @@ class AI_Beauty_Portal {
             wp_send_json_error(['message' => '名前を入力してください。']);
         }
 
-        // --- イタズラ対策: レートリミット (IPベース) ---
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $limit_key = 'beauty_limit_' . md5($ip);
-        $count = (int)get_transient($limit_key);
-
-        if ($count >= 3) {
-            wp_send_json_error(['message' => 'リクエスト制限を超えました。1時間後にもう一度お試しください。']);
-        }
-
         // GitHub Actions 起動
         $result_msg = $this->trigger_github_action($name, $category);
 
         if (strpos($result_msg, '成功') !== false) {
-            // カウントアップ (有効期限1時間)
-            set_transient($limit_key, $count + 1, HOUR_IN_SECONDS);
             wp_send_json_success(['message' => 'リクエストを承りました！数分以内に解析記事が公開されます。']);
         } else {
             wp_send_json_error(['message' => 'GitHub連携エラー: ' . $result_msg]);
@@ -205,8 +196,8 @@ class AI_Beauty_Portal {
     }
 
     private function trigger_github_action($name, $category) {
-        $owner = get_option('beauty_gh_owner');
-        $repo  = get_option('beauty_gh_repo');
+        $owner = get_option('beauty_gh_owner', 'susumu53');
+        $repo  = get_option('beauty_gh_repo', 'beauty-index-system');
         $token = get_option('beauty_gh_token');
 
         if (!$owner || !$repo || !$token) return 'GitHubの設定が未完了です。';
