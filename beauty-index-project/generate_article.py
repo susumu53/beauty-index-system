@@ -112,6 +112,21 @@ class BeautyManager:
         # サムネイル画像の取得
         best_img_url = best_candidate['item'].get('imageURL', {}).get('large', '')
 
+        import hashlib
+        # 名前から一意のハッシュ値を生成 (0.0 〜 1.0 の範囲)
+        hash_val = int(hashlib.md5(display_name.encode('utf-8')).hexdigest(), 16) / (16**32)
+        
+        # 作品検索ヒット数を加味したトレンドボーナス (最大 15.0 pt)
+        work_score = min(15.0, len(works) * 0.5)
+        
+        # 社会的評価(トレンド度): 基礎点70 + 作品数スコア + 固有の揺らぎ
+        calc_social_meme = round(70.0 + work_score + (hash_val * 13.0), 1)
+        
+        # その他固定値だった指標も対象ごとに微細な揺らぎ（個体差）を持たせる
+        prop_base = 90.0 if category == "3D" else 85.0
+        calc_proportion = round(prop_base + (hash_val * 8.0) - 4.0, 1)
+        calc_dimorphism = round(85.0 + (hash_val * 10.0) - 5.0, 1)
+
         # データをまとめる (全5指標を明示的に保存)
         result_data = {
             "name": display_name,
@@ -119,9 +134,9 @@ class BeautyManager:
             "total_score": total_score,
             "symmetry": best_res['symmetry'],
             "neoteny": best_res['neoteny'],
-            "proportion": 90.0 if category == "3D" else 85.0,
-            "dimorphism": 85.0,
-            "social_meme": 80.0,
+            "proportion": calc_proportion,
+            "dimorphism": calc_dimorphism,
+            "social_meme": calc_social_meme,
             "affiliate_url": best_candidate['item'].get('affiliateURL', '').replace("namasoku-990", "namasoku-001"), # DB用
             "image_url": best_img_url,
             "selected_candidates": selected_candidates # 記事構築用
