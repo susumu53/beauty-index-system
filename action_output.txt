@@ -1,55 +1,25 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776589791.649811    2767 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776589791.654083    2769 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776589791.661070    2765 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776593442.702123    2872 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776593442.706237    2875 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776593442.715093    2872 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
 
 --- Objective Analysis for 3D Subject: 河北彩伽 ---
-Actress '南みゆか' not found by name search. Falling back to keyword search...
-Found 50 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【デジタル限定豪華版30ページ増】南みゆか2nd写... - Face Occ: 0.021
-  [3] FLASHデジタル写真集 南みゆか 大人の顔をして... - Face Occ: 0.156
-  [4] 南みゆか「セクシー忍法帖」 SPA！デジタル写真集... - Face Occ: 0.074
-  [8] 【デジタル限定】南みゆか写真集「背伸びのシかた。」... - Face Occ: 0.086
-  [9] FLASHデジタル写真集 南みゆか 19歳の背伸び... - Face Occ: 0.137
-  [10] 南みゆか『やわらかな日々』BOMBデジタル写真集... - Face Occ: 0.098
-  [11] 南みゆか DIVE！！ FRIDAYデジタル写真集... - Face Occ: 0.07
-  [13] 矢野ななか×南みゆか 奇跡の19歳コンビ 100ペ... - Face Occ: 0.067
-  [14] EX大衆デジタル写真集 : 65 南みゆか「未来に... - Face Occ: 0.099
-  [15] 南みゆか 夏も終わるから…… 週刊現代デジタル写真... - Face Occ: 0.059
-  [16] 南みゆか『気まぐれな果実』BOMBデジタル写真集... - Face Occ: 0.115
-  [17] 南みゆか「シュークリームボディ」SPA！デジタル写... - Face Occ: 0.061
-  [18] 漫画アクションデジタル写真集 南みゆか「グラビアプ... - Face Occ: 0.026
-  [19] 【デジタル限定】南みゆか写真集「DIVE into... - Face Occ: 0.089
-  [20] 南みゆかファースト写真集『南風』〜SWEET甘口〜... - Face Occ: 0.182
-  [21] 南みゆかファースト写真集『南風』〜SPICY辛口〜... - Face Occ: 0.123
-  [22] 南みゆかファースト写真集『南風』... - Face Occ: 0.106
-  [23] 南みゆか 【増量版 全50P】ヤンマガアザーっす！... - Face Occ: 0.025
-  [24] 【グラビア文学館】南みゆか×小川未明「赤い蝋燭と人... - Face Occ: 0.067
-  [25] 南みゆか あふれるきもち 大ボリューム完全版 FR... - Face Occ: 0.034
-  [26] 南みゆか「青春からの卒業」【ヤングチャンピオンデジ... - Face Occ: 0.022
-  [27] 【デジタル限定】南みゆか写真集... - Face Occ: 0.029
-  [28] 南みゆか 冬が終わるまでのこと。【STRiKE！ ... - Face Occ: 0.035
-  [31] 【デジタル限定豪華版30ページ増】南みゆか2nd写... - Face Occ: 0.021
-  [33] FLASHデジタル写真集 南みゆか 大人の顔をして... - Face Occ: 0.156
-  [34] 南みゆか「セクシー忍法帖」 SPA！デジタル写真集... - Face Occ: 0.074
-  [38] 【デジタル限定】南みゆか写真集「背伸びのシかた。」... - Face Occ: 0.086
-  [39] FLASHデジタル写真集 南みゆか 19歳の背伸び... - Face Occ: 0.137
-  [40] 南みゆか『やわらかな日々』BOMBデジタル写真集... - Face Occ: 0.098
-  [41] 南みゆか DIVE！！ FRIDAYデジタル写真集... - Face Occ: 0.07
-  [43] 矢野ななか×南みゆか 奇跡の19歳コンビ 100ペ... - Face Occ: 0.067
-  [44] EX大衆デジタル写真集 : 65 南みゆか「未来に... - Face Occ: 0.099
-  [45] 南みゆか 夏も終わるから…… 週刊現代デジタル写真... - Face Occ: 0.059
-  [46] 南みゆか『気まぐれな果実』BOMBデジタル写真集... - Face Occ: 0.115
-  [47] 南みゆか「シュークリームボディ」SPA！デジタル写... - Face Occ: 0.061
-  [48] 漫画アクションデジタル写真集 南みゆか「グラビアプ... - Face Occ: 0.026
-  [49] 【デジタル限定】南みゆか写真集「DIVE into... - Face Occ: 0.089
-  [50] 南みゆかファースト写真集『南風』〜SWEET甘口〜... - Face Occ: 0.182
+Actress '志崎樺音' not found by name search. Falling back to keyword search...
+Found 10 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 志崎樺音1st写真集 unplugged... - Face Occ: 0.048
+  [2] 【デジタル限定】志崎樺音 写真集 EYES ON ... - Face Occ: 0.068
+  [4] 【デジタル限定】志崎樺音フォトブック「duet」... - Face Occ: 0.037
+  [5] 【デジタル限定】櫻川めぐ＆志崎樺音フォトブック〜特... - Face Occ: 0.087
+  [6] 志崎樺音1st写真集 unplugged... - Face Occ: 0.048
+  [7] 【デジタル限定】志崎樺音 写真集 EYES ON ... - Face Occ: 0.068
+  [9] 【デジタル限定】志崎樺音フォトブック「duet」... - Face Occ: 0.037
+  [10] 【デジタル限定】櫻川めぐ＆志崎樺音フォトブック〜特... - Face Occ: 0.087
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/19/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e6%b2%b3%e5%8c%97%e5%bd%a9%e4%bc%bd-%e3%81%ae/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/19/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%bf%97%e5%b4%8e%e6%a8%ba%e9%9f%b3-%e3%81%ae/
 
 --- Updating Official Ranking Page ---
-Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/?p=222
+Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/2026/04/19/official-beauty-ranking/
