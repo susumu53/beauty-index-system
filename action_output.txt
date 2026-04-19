@@ -1,11 +1,11 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776586827.833514    2818 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776586827.838216    2823 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776586827.845604    2818 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-Starting analysis for: 志崎樺音 (3D)
+W0000 00:00:1776587032.667296    2821 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776587032.671500    2826 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776587032.679023    2821 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+Starting analysis for: 井手美希 (3D)
 
---- Objective Analysis for 3D Subject: 志崎樺音 ---
+--- Objective Analysis for 3D Subject: 井手美希 ---
 Actress not found.
 
 --- Updating Official Ranking Page ---
