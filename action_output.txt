@@ -1,57 +1,49 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776647515.471284    2819 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776647515.477369    2823 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776647515.485234    2819 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776647925.523226    2862 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776647925.529734    2865 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776647925.536880    2861 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: ときちゃん (3D)
+Starting analysis for: 冴木柚葉 (3D)
 
---- Objective Analysis for 3D Subject: ときちゃん ---
-Found actress: ときちゃん
-Fetching works from DMM.com and Amazon...
-Found 50 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [2] ときちゃんデジタル写真集 ときちゃん、解禁！... - Face Occ: 0.185
-  [3] 〈DMM限定動画付き〉ときちゃんネイキッド！【「電... - Face Occ: 0.042
-  [4] 【オールアザー版】ときちゃんリミテッド！... - Face Occ: 0.025
-  [6] 〈DMM限定〉ときちゃんネイキッド！【電子版特典＋... - Face Occ: 0.042
-  [7] ときちゃんネイキッド！【電子版特典カットつき】... - Face Occ: 0.042
-  [8] 【デジタル限定】ときちゃん写真集「エロ天賦」... - Face Occ: 0.038
-  [9] ときちゃん「酔わせてほしいの」SPA！デジタル写真... - Face Occ: 0.046
-  [12] 【30分超動画付き】ときちゃん写真集「スキマシェリ... - Face Occ: 0.177
-  [13] ときちゃん「聖なるバニーナイト」SPA！デジタル写... - Face Occ: 0.032
-  [14] ときちゃん とき尻。... - Face Occ: 0.037
-  [15] ときちゃん ときむじゃき... - Face Occ: 0.223
-  [16] ときちゃん「今夜はオールイン」 BRODYデジタル... - Face Occ: 0.081
-  [17] FLASHデジタル写真集 ときちゃん OL物語 〜... - Face Occ: 0.128
-  [18] FLASHデジタル写真集 ときちゃん OL物語 〜... - Face Occ: 0.042
-  [19] 【電子版限定24ページ増】ときちゃん1st写真集 ... - Face Occ: 0.027
-  [20] ときちゃん「【オールアザー版】ときよる」SPA！デ... - Face Occ: 0.086
-  [21] 【デジタル限定】ときちゃん写真集「ikot」... - Face Occ: 0.034
-  [22] ときちゃん ときろまん〜ホテル蛤503号室〜... - Face Occ: 0.125
-  [24] ときちゃん「東京は夜の一時」SPA！デジタル写真集... - Face Occ: 0.05
-  [25] 【デジタル限定】ときちゃん写真集「toxic」... - Face Occ: 0.032
-  [26] ときちゃんの××を見せて... - Face Occ: 0.026
-  [28] ときちゃん ときざんまい。... - Face Occ: 0.058
-  [32] ときちゃんデジタル写真集 ときちゃん、解禁！... - Face Occ: 0.185
-  [33] 〈DMM限定動画付き〉ときちゃんネイキッド！【「電... - Face Occ: 0.042
-  [34] 【オールアザー版】ときちゃんリミテッド！... - Face Occ: 0.025
-  [36] 〈DMM限定〉ときちゃんネイキッド！【電子版特典＋... - Face Occ: 0.042
-  [37] ときちゃんネイキッド！【電子版特典カットつき】... - Face Occ: 0.042
-  [38] 【デジタル限定】ときちゃん写真集「エロ天賦」... - Face Occ: 0.038
-  [39] ときちゃん「酔わせてほしいの」SPA！デジタル写真... - Face Occ: 0.046
-  [42] 【30分超動画付き】ときちゃん写真集「スキマシェリ... - Face Occ: 0.177
-  [43] ときちゃん「聖なるバニーナイト」SPA！デジタル写... - Face Occ: 0.032
-  [44] ときちゃん とき尻。... - Face Occ: 0.037
-  [45] ときちゃん ときむじゃき... - Face Occ: 0.223
-  [46] ときちゃん「今夜はオールイン」 BRODYデジタル... - Face Occ: 0.081
-  [47] FLASHデジタル写真集 ときちゃん OL物語 〜... - Face Occ: 0.128
-  [48] FLASHデジタル写真集 ときちゃん OL物語 〜... - Face Occ: 0.042
-  [49] 【電子版限定24ページ増】ときちゃん1st写真集 ... - Face Occ: 0.027
-  [50] ときちゃん「【オールアザー版】ときよる」SPA！デ... - Face Occ: 0.086
+--- Objective Analysis for 3D Subject: 冴木柚葉 ---
+Actress '冴木柚葉' not found by name search. Falling back to keyword search...
+Found 48 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] FLASHデジタル写真集 冴木柚葉 僕だけが知って... - Face Occ: 0.095
+  [4] 冴木柚葉 ゆずサウナ... - Face Occ: 0.116
+  [5] 冴木柚葉デジタル写真集 朱にほどける... - Face Occ: 0.1
+  [7] 【デジタル限定】冴木柚葉写真集「もっと、もっと。」... - Face Occ: 0.127
+  [8] 冴木柚葉 Lo-fi Girl... - Face Occ: 0.04
+  [11] 冴木柚葉「どれにしようかな」 DOLCEデジタル写... - Face Occ: 0.128
+  [12] 【デジタル限定 YJ PHOTO BOOK】冴木柚... - Face Occ: 0.079
+  [15] FLASHデジタル写真集 冴木柚葉 Lumiere... - Face Occ: 0.071
+  [16] 冴木柚葉 気になるあの子 FRIDAYデジタル写真... - Face Occ: 0.119
+  [17] 【デジタル限定】冴木柚葉写真集「想いはあふれて。」... - Face Occ: 0.088
+  [18] 冴木柚葉「妄想をかき立てる表情」SPA！デジタル写... - Face Occ: 0.046
+  [19] 【デジタル限定】冴木柚葉写真集「あいまいでいい」... - Face Occ: 0.151
+  [21] 【デジタル限定】冴木柚葉写真集「ボクの恋煩い」... - Face Occ: 0.144
+  [22] 冴木柚葉 ヤンマガアザーっす！＜YM2023年30... - Face Occ: 0.132
+  [23] 冴木柚葉 EVERYDAY 【STRiKE！ DI... - Face Occ: 0.03
+  [25] 冴木柚葉 ヤンマガアザーっす！＜YM2023年9号... - Face Occ: 0.104
+  [26] 冴木柚葉『週プレ プラス！』アザーカット集「エモー... - Face Occ: 0.12
+  [27] 冴木柚葉「真昼のカノジョ」 FRIDAYデジタル写... - Face Occ: 0.085
+  [28] 【デジタル限定】冴木柚葉写真集「抱きしめたい」... - Face Occ: 0.173
+  [29] FLASHデジタル写真集 冴木柚葉 僕だけが知って... - Face Occ: 0.095
+  [32] 冴木柚葉 ゆずサウナ... - Face Occ: 0.116
+  [33] 冴木柚葉デジタル写真集 朱にほどける... - Face Occ: 0.1
+  [35] 【デジタル限定】冴木柚葉写真集「もっと、もっと。」... - Face Occ: 0.127
+  [36] 冴木柚葉 Lo-fi Girl... - Face Occ: 0.04
+  [39] 冴木柚葉「どれにしようかな」 DOLCEデジタル写... - Face Occ: 0.128
+  [40] 【デジタル限定 YJ PHOTO BOOK】冴木柚... - Face Occ: 0.079
+  [43] FLASHデジタル写真集 冴木柚葉 Lumiere... - Face Occ: 0.071
+  [44] 冴木柚葉 気になるあの子 FRIDAYデジタル写真... - Face Occ: 0.119
+  [45] 【デジタル限定】冴木柚葉写真集「想いはあふれて。」... - Face Occ: 0.088
+  [46] 冴木柚葉「妄想をかき立てる表情」SPA！デジタル写... - Face Occ: 0.046
+  [47] 【デジタル限定】冴木柚葉写真集「あいまいでいい」... - Face Occ: 0.151
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/20/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e3%81%a8%e3%81%8d%e3%81%a1%e3%82%83%e3%82%93/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/20/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%86%b4%e6%9c%a8%e6%9f%9a%e8%91%89-%e3%81%ae/
 Sending data to WordPress Ranking API...
 Successfully updated real-time ranking data.
 
