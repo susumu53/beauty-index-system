@@ -30,10 +30,13 @@ class FC2Client:
         post_data = {
             'title': title,
             'description': content,
+            'mt_keywords': ",".join(categories) if categories else "" # タグとしても送信
         }
         
         if categories:
             post_data['categories'] = categories
+            
+        post_data['post_status'] = 'publish' if publish else 'draft'
         
         try:
             print(f"FC2ブログへ投稿中... [{title}]")
