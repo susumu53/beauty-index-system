@@ -91,9 +91,7 @@ def generate_html_article(items, category_name):
             html += f'    {introduction}\n'
             html += f'  </div>\n'
         
-        html += f'  <div class="item-link" style="text-align: center;">\n'
-        html += f'    <a href="{affiliate_url}" target="_blank" rel="noopener" style="display: inline-block; background: #ff9800; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">▶ FANZAで詳細を見る</a>\n'
-        html += f'  </div>\n'
+        # (ボタン部分を削除)
         html += f'</div>\n'
         
     html += "<p style='font-size: 0.8em; color: #777;'>※ランキング情報は記事作成時点のものです。最新の情報はリンク先でご確認ください。</p>\n"
@@ -106,7 +104,7 @@ def main():
     parser.add_argument("--floor", type=str, default="videoa", help="手動指定時のフロア")
     parser.add_argument("--category", type=str, default=None, help="手動時のカテゴリ名")
     parser.add_argument("--hits", type=int, default=10, help="取得件数")
-    parser.add_argument("--draft", action="store_true", help="下書きとして保存")
+    # --draft オプションを削除
     args = parser.parse_args()
 
     try:
@@ -150,8 +148,9 @@ def main():
         today_str = datetime.datetime.now().strftime("%Y/%m/%d")
         title = f"【{today_str}】FANZA売れ筋！【{target_category}】ランキング TOP{args.hits}"
         
-        is_publish = not args.draft
-        print(f"ライブドアブログへ投稿中... [公開: {is_publish}]")
+        # 常に公開（publish=True）に設定
+        is_publish = True
+        print(f"ライブドアブログへ投稿中... [常に公開設定]")
         livedoor.post_article(title, article_html, categories=[target_category], publish=is_publish)
         
     except Exception as e:
