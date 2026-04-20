@@ -1,55 +1,24 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776643172.650865    2809 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776643172.654999    2812 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776643172.663830    2810 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776643419.338503    2607 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776643419.341752    2612 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776643419.348083    2607 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: ちばひなの (3D)
+Starting analysis for: 浜辺美波 (3D)
 
---- Objective Analysis for 3D Subject: ちばひなの ---
-Actress 'ちばひなの' not found by name search. Falling back to keyword search...
-Found 41 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【デジタル限定】ちばひなの 写真集 『 Brand... - Face Occ: 0.066
-  [2] 【デジタル限定】ちばひなの 写真集 『 18-19... - Face Occ: 0.104
-  [3] 【デジタル限定】ちばひなの写真集「Emergenc... - Face Occ: 0.038
-  [4] 週刊GIRLS-PEDIA132 ちばひなの... - Face Occ: 0.031
-  [5] 【動画特典付き】 ちばひなの「カラフルな透明感」 ... - Face Occ: 0.017
-  [6] ちばひなの「陽だまりの恋」【ヤングチャンピオンデジ... - Face Occ: 0.18
-  [8] 【デジタル限定】ちばひなの 写真集 『 青春の蕾 ... - Face Occ: 0.103
-  [9] 【デジタル限定】ちばひなの写真集「幕間」... - Face Occ: 0.128
-  [10] EX大衆デジタル写真集 : 62 ちばひなの「キュ... - Face Occ: 0.143
-  [11] ちばひなの 【増量版 全50P】ヤンマガアザーっす... - Face Occ: 0.134
-  [12] ちばひなの「ひなの日和」【ヤングチャンピオンデジグ... - Face Occ: 0.057
-  [14] 【デジタル限定】ちばひなの写真集「忘れたくない夏」... - Face Occ: 0.022
-  [15] ちばひなの NEXT推しガール！ 1 ヤンマガデジ... - Face Occ: 0.111
-  [16] ちばひなの NEXT推しガール！ 1〜4【140P... - Face Occ: 0.134
-  [17] ちばひなの NEXT推しガール！ 2 ヤンマガデジ... - Face Occ: 0.092
-  [18] ちばひなの NEXT推しガール！ 3 ヤンマガデジ... - Face Occ: 0.048
-  [19] ちばひなの NEXT推しガール！ 4 ヤンマガデジ... - Face Occ: 0.095
-  [20] ちばひなの Fairy of Mimosa... - Face Occ: 0.085
-  [21] 【デジタル限定】ちばひなの写真集「幕が開けたら」... - Face Occ: 0.124
-  [22] 【デジタル限定】ちばひなの 写真集 『 Brand... - Face Occ: 0.066
-  [23] 【デジタル限定】ちばひなの 写真集 『 18-19... - Face Occ: 0.104
-  [24] 【デジタル限定】ちばひなの写真集「Emergenc... - Face Occ: 0.038
-  [25] 週刊GIRLS-PEDIA132 ちばひなの... - Face Occ: 0.031
-  [26] 【動画特典付き】 ちばひなの「カラフルな透明感」 ... - Face Occ: 0.017
-  [27] ちばひなの「陽だまりの恋」【ヤングチャンピオンデジ... - Face Occ: 0.18
-  [29] 【デジタル限定】ちばひなの 写真集 『 青春の蕾 ... - Face Occ: 0.103
-  [30] 【デジタル限定】ちばひなの写真集「幕間」... - Face Occ: 0.128
-  [31] EX大衆デジタル写真集 : 62 ちばひなの「キュ... - Face Occ: 0.143
-  [32] ちばひなの 【増量版 全50P】ヤンマガアザーっす... - Face Occ: 0.134
-  [33] ちばひなの「ひなの日和」【ヤングチャンピオンデジグ... - Face Occ: 0.057
-  [35] 【デジタル限定】ちばひなの写真集「忘れたくない夏」... - Face Occ: 0.022
-  [36] ちばひなの NEXT推しガール！ 1 ヤンマガデジ... - Face Occ: 0.111
-  [37] ちばひなの NEXT推しガール！ 1〜4【140P... - Face Occ: 0.134
-  [38] ちばひなの NEXT推しガール！ 2 ヤンマガデジ... - Face Occ: 0.092
-  [39] ちばひなの NEXT推しガール！ 3 ヤンマガデジ... - Face Occ: 0.048
-  [40] ちばひなの NEXT推しガール！ 4 ヤンマガデジ... - Face Occ: 0.095
-  [41] ちばひなの Fairy of Mimosa... - Face Occ: 0.085
+--- Objective Analysis for 3D Subject: 浜辺美波 ---
+Actress '浜辺美波' not found by name search. Falling back to keyword search...
+Found 18 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 【電子書籍限定カット付き！】浜辺美波写真集 25... - Face Occ: 0.431
+  [2] 【電子書籍限定カット付き！】浜辺美波写真集 20... - Face Occ: 0.344
+  [9] 【電子特別版】浜辺美波写真集 voyage... - Face Occ: 0.206
+  [10] 【電子書籍限定カット付き！】浜辺美波写真集 25... - Face Occ: 0.431
+  [11] 【電子書籍限定カット付き！】浜辺美波写真集 20... - Face Occ: 0.344
+  [18] 【電子特別版】浜辺美波写真集 voyage... - Face Occ: 0.206
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/20/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e3%81%a1%e3%81%b0%e3%81%b2%e3%81%aa%e3%81%ae/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/20/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e6%b5%9c%e8%be%ba%e7%be%8e%e6%b3%a2-%e3%81%ae/
 Sending data to WordPress Ranking API...
 Successfully updated real-time ranking data.
 
