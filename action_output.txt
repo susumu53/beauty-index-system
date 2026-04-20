@@ -1,14 +1,28 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776644105.210567    2807 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776644105.216542    2809 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776644105.223301    2807 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-Starting analysis for: 林ゆめ (3D)
+W0000 00:00:1776645840.851527    2965 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776645840.857608    2969 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776645840.864303    2965 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
+  warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
+Starting analysis for: 寺本莉緒 (3D)
 
---- Objective Analysis for 3D Subject: 林ゆめ ---
-Found actress: 小林ゆめ
-Fetching works from DMM.com and Amazon...
-No works found for 林ゆめ
+--- Objective Analysis for 3D Subject: 寺本莉緒 ---
+Actress '寺本莉緒' not found by name search. Falling back to keyword search...
+Found 12 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 【DMM限定カット付き】寺本莉緒写真集 RIO【全... - Face Occ: 0.117
+  [2] 【電子限定カット付き】寺本莉緒写真集 RIO【全1... - Face Occ: 0.154
+  [3] FRIDAYオリジナル電子版 寺本莉緒「ときめきア... - Face Occ: 0.089
+  [4] FRIDAYオリジナル電子版 寺本莉緒「放課後のグ... - Face Occ: 0.044
+  [7] 【DMM限定カット付き】寺本莉緒写真集 RIO【全... - Face Occ: 0.117
+  [8] 【電子限定カット付き】寺本莉緒写真集 RIO【全1... - Face Occ: 0.154
+  [9] FRIDAYオリジナル電子版 寺本莉緒「ときめきア... - Face Occ: 0.089
+  [10] FRIDAYオリジナル電子版 寺本莉緒「放課後のグ... - Face Occ: 0.044
+
+Uploading media to WordPress...
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/20/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%af%ba%e6%9c%ac%e8%8e%89%e7%b7%92-%e3%81%ae/
+Sending data to WordPress Ranking API...
+Successfully updated real-time ranking data.
 
 --- Updating Official Ranking Page ---
 Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/2026/04/19/official-beauty-ranking/
