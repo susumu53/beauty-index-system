@@ -80,6 +80,32 @@ class DMMClient:
             
         return []
 
+    def get_top_fanza_works(self, service="digital", floor="videoa", hits=10, keyword=None):
+        """FANZAの特定サービスにおける売れ筋(rank順)商品を取得する(オプションでキーワード指定可能)"""
+        params = {
+            "api_id": self.api_id,
+            "affiliate_id": self.affiliate_id,
+            "site": "FANZA",
+            "service": service,
+            "sort": "rank",
+            "hits": hits,
+            "output": "json"
+        }
+        
+        if floor:
+            params["floor"] = floor
+            
+        if keyword:
+            params["keyword"] = keyword
+            
+        response = requests.get(f"{self.base_url}/ItemList", params=params)
+        data = response.json()
+        
+        if "result" in data and "items" in data["result"]:
+            return data["result"]["items"]
+        
+        return []
+
 if __name__ == "__main__":
     client = DMMClient()
     # テスト: 三上悠亜
