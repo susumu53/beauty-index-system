@@ -13,7 +13,7 @@ class ArticleGenerator:
     def generate_ranking_html(self, title, items, subtitle="DMM.com公式データに基づく人気ランキング"):
         """ランキング形式の記事HTMLを生成（YouTube埋め込み対応版）"""
         html = f"""
-        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; max-width: 800px; margin: 0 auto; background: #fafafa; padding: 10px;">
+        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; width: 100%; background: #fafafa; padding: 10px; box-sizing: border-box;">
             <div style="text-align: center; margin-bottom: 30px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
                 <h2 style="color: #d32f2f; margin: 0 0 10px; font-size: 26px;">{title}</h2>
                 <p style="color: #666; font-size: 14px; margin: 0;">{subtitle}</p>
@@ -121,7 +121,7 @@ class ArticleGenerator:
             """
 
         html = f"""
-        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; max-width: 800px; margin: 0 auto; line-height: 1.6; background: #fff;">
+        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; width: 100%; line-height: 1.6; background: #fff; box-sizing: border-box;">
             <div style="background: linear-gradient(to bottom, #fff0f5, #ffffff); padding: 40px 20px; text-align: center; border-bottom: 1px solid #ffd1dc;">
                 <span style="background: #ff1493; color: #fff; padding: 4px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; letter-spacing: 1px;">AI BEAUTY ANALYSIS</span>
                 <h1 style="color: #ff1493; font-size: 28px; margin: 15px 0;">{title}</h1>
