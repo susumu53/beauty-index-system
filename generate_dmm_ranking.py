@@ -24,7 +24,7 @@ SCHEDULE_24H = [
     # 昼下がり〜夕方 (少し刺激的・アニメ・PCゲーム)
     {"service": "digital", "floor": "videoa", "keyword": "企画", "category": "企画ビデオ"},  # 12時
     {"service": "digital", "floor": "anime", "keyword": "エロアニメ", "category": "アダルトアニメ"},  # 13時
-    {"service": "digital", "floor": "videoa", "keyword": "女子校生", "category": "学生・女子校生"},  # 14時
+    {"service": "digital", "floor": "videoa", "keyword": "制服", "category": "制服・コスプレ"},  # 14時 (学生を回避)
     {"service": "digital", "floor": "pcgame", "keyword": "アダルトPCゲーム", "category": "美少女PCゲーム"},  # 15時
     {"service": "digital", "floor": "videoa", "keyword": "お姉さん", "category": "お姉さん"},  # 16時
     {"service": "mono", "floor": "goods", "keyword": "ローター", "category": "小型グッズ(ローター)"},  # 17時
@@ -38,6 +38,28 @@ SCHEDULE_24H = [
     {"service": "digital", "floor": "videoa", "keyword": "VR", "category": "VRアダルト動画"},  # 23時
 ]
 
+# FC2ブログの規約違反(NGワード)対策リスト
+NG_WORDS = [
+    # 犯罪・強制・過激系
+    "洗脳", "レイプ", "強姦", "盗撮", "リベンジポルノ", "乱暴", "鬼畜", "無理やり", "無理矢理", 
+    "監禁", "奴隷", "調教", "強制", "辱め", "陵辱",
+    
+    # 年齢・身分系 (FC2は特に厳しい)
+    "ロリ", "ペド", "幼女", "稚児", "児童", "JS", "JC", "JK", "女子校生", "女子高生", "女子中学生", "女子小学生",
+    "女学生", "女子生徒", "教え子", "女子大生", "学生", "学園", "校内", "体育倉庫", "授乳",
+    
+    # 社会的・近親系
+    "援交", "援助交際", "パパ活", "売春", "買春", "近親相姦", "義母", "実母", "姉妹", "継母", "兄妹"
+]
+
+def sanitize_text(text):
+    """タイトル等に含まれるNGワードを伏せ字(〇〇)に変換する"""
+    if not text:
+        return ""
+    for word in NG_WORDS:
+        text = text.replace(word, "〇〇")
+    return text
+
 def generate_html_article(items, category_name):
     """
     DMMのアイテムリストからシンプルなランキング用HTMLを生成する
@@ -48,7 +70,8 @@ def generate_html_article(items, category_name):
     html += "<hr>\n"
     
     for rank, item in enumerate(items, 1):
-        title = item.get("title", "タイトル不明")
+        raw_title = item.get("title", "タイトル不明")
+        title = sanitize_text(raw_title)
         affiliate_url = item.get("affiliateURL", "#")
         image_url = item.get("imageURL", {}).get("large", "")
         
