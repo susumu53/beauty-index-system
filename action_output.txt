@@ -1,45 +1,13 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776648008.352688    2819 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776648008.358679    2823 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776648008.366540    2819 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
-  warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: えなこ (3D)
+W0000 00:00:1776653957.426647    2817 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776653957.433065    2821 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776653957.439335    2816 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+Starting analysis for: 吉岡里穂 (3D)
 
---- Objective Analysis for 3D Subject: えなこ ---
-Actress 'えなこ' not found by name search. Falling back to keyword search...
-Found 50 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] えなこ写真集『エピローグ』デジタルエディション... - Face Occ: 0.028
-  [2] えなこ「夢で逢えたら」【ヤングチャンピオンデジグラ... - Face Occ: 0.146
-  [3] えなこ デジタル写真集 PLAYER... - Face Occ: 0.07
-  [5] えなこカレンダーブック2026.4〜2027.3【... - Face Occ: 0.163
-  [7] 【デジタル限定 YJ PHOTO BOOK】えなこ... - Face Occ: 0.123
-  [11] 漫画アクションデジタル写真集 えなこ「姫様の秘め事... - Face Occ: 0.042
-  [12] 【デジタル限定 YJ PHOTO BOOK】えなこ... - Face Occ: 0.039
-  [14] えなこ ヤングガンガンデジタル限定写真集「おとなm... - Face Occ: 0.095
-  [15] 【デジタル限定】えなこ写真集「レースの誘惑」... - Face Occ: 0.158
-  [17] 【アニマルデジタルフォトブック】えなこ 「Enam... - Face Occ: 0.033
-  [22] 漫画アクションデジタル写真集 えなこ「清く、熱く。... - Face Occ: 0.068
-  [24] FLASHデジタル写真集 えなこ あの夏の日を覚え... - Face Occ: 0.145
-  [25] 漫画アクションデジタル写真集 えなこ「揺らぐ心に甘... - Face Occ: 0.029
-  [27] 漫画アクションデジタル写真集 えなこ「白い朝、ささ... - Face Occ: 0.083
-  [30] えなこ「えなこ日和」【ヤングチャンピオンデジグラ】... - Face Occ: 0.076
-  [31] えなこ写真集『エピローグ』デジタルエディション... - Face Occ: 0.028
-  [32] えなこ「夢で逢えたら」【ヤングチャンピオンデジグラ... - Face Occ: 0.146
-  [33] えなこ デジタル写真集 PLAYER... - Face Occ: 0.07
-  [35] えなこカレンダーブック2026.4〜2027.3【... - Face Occ: 0.163
-  [37] 【デジタル限定 YJ PHOTO BOOK】えなこ... - Face Occ: 0.123
-  [41] 漫画アクションデジタル写真集 えなこ「姫様の秘め事... - Face Occ: 0.042
-  [42] 【デジタル限定 YJ PHOTO BOOK】えなこ... - Face Occ: 0.039
-  [44] えなこ ヤングガンガンデジタル限定写真集「おとなm... - Face Occ: 0.095
-  [45] 【デジタル限定】えなこ写真集「レースの誘惑」... - Face Occ: 0.158
-  [47] 【アニマルデジタルフォトブック】えなこ 「Enam... - Face Occ: 0.033
-
-Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/20/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e3%81%88%e3%81%aa%e3%81%93-%e3%81%ae%e5%ae%a2/
-Sending data to WordPress Ranking API...
-Successfully updated real-time ranking data.
+--- Objective Analysis for 3D Subject: 吉岡里穂 ---
+Actress '吉岡里穂' not found by name search. Falling back to keyword search...
+No works found for 吉岡里穂
 
 --- Updating Official Ranking Page ---
 Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/2026/04/19/official-beauty-ranking/
