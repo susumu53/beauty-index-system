@@ -54,10 +54,32 @@ def generate_html_article(items, category_name):
     """
     today_str = datetime.datetime.now().strftime("%Y年%m月%d日")
     
-    html = f'<div class="ranking-header">\n'
-    html += f'  <p>【{today_str}更新】最新の【{category_name}】売れ筋ランキングをお届けします！</p>\n'
-    html += f'</div>\n'
-    html += "<hr>\n"
+    # CSSスタイル定義（ライブドアブログの記事内に埋め込む）
+    style = """
+    <style>
+    .ranking-container { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; color: #333; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+    .ranking-header { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); color: white; padding: 30px; text-align: center; border-radius: 15px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .ranking-header h1 { margin: 0; font-size: 24px; font-weight: bold; }
+    .ranking-item { background: #fff; border-radius: 15px; padding: 25px; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; transition: transform 0.3s ease; }
+    .ranking-item:hover { transform: translateY(-5px); }
+    .rank-badge { display: inline-block; background: #e91e63; color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-bottom: 15px; }
+    .item-title { font-size: 20px; font-weight: bold; margin-bottom: 20px; color: #1a1a1a; border-left: 5px solid #2575fc; padding-left: 15px; }
+    .main-image { text-align: center; margin-bottom: 25px; }
+    .main-image img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 3px solid #f8f9fa; }
+    .product-info-table { width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 14px; }
+    .product-info-table th { background: #f8f9fa; text-align: left; padding: 10px; border-bottom: 1px solid #eee; width: 100px; color: #666; }
+    .product-info-table td { padding: 10px; border-bottom: 1px solid #eee; color: #333; }
+    .sample-images { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-top: 20px; }
+    .sample-images img { width: 100%; height: auto; border-radius: 5px; cursor: pointer; transition: opacity 0.3s; border: 1px solid #eee; }
+    .sample-images img:hover { opacity: 0.8; }
+    .ranking-footer { text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #eee; color: #888; font-size: 12px; }
+    </style>
+    """
+    
+    html = f'{style}\n<div class="ranking-container">\n'
+    html += f'  <div class="ranking-header">\n'
+    html += f'    <h1>【{today_str}更新】{category_name}ランキング TOP10</h1>\n'
+    html += f'  </div>\n'
     
     for rank, item in enumerate(items, 1):
         raw_title = item.get("title", "タイトル不明")
@@ -65,36 +87,51 @@ def generate_html_article(items, category_name):
         affiliate_url = item.get("affiliateURL", "#")
         image_url = item.get("imageURL", {}).get("large", "")
         
-        # 紹介文の取得 (introduction, description, またはジャンル情報)
-        introduction = item.get("introduction", "")
-        if not introduction and "iteminfo" in item:
-            genres = item["iteminfo"].get("genre", [])
-            if genres:
-                genre_names = [g.get("name") for g in genres if g.get("name")]
-                introduction = "ジャンル: " + ", ".join(genre_names)
+        # アイテム情報の抽出
+        item_info = item.get("iteminfo", {})
+        actresses = ", ".join([a.get("name") for a in item_info.get("actress", []) if a.get("name")])
+        maker = ", ".join([m.get("name") for m in item_info.get("maker", []) if m.get("name")])
+        label = ", ".join([l.get("name") for l in item_info.get("label", []) if l.get("name")])
+        date = item.get("date", "不明")
         
-        introduction = sanitize_text(introduction)
+        # サンプル画像の抽出 (最大5枚)
+        samples = item.get("sampleImageURL", {}).get("sample_l", {}).get("image", [])
+        sample_html = ""
+        if samples:
+            sample_html = '<div class="sample-images">\n'
+            for s_img in samples[:5]:
+                sample_html += f'    <a href="{affiliate_url}" target="_blank" rel="noopener"><img src="{s_img}" alt="サンプル"></a>\n'
+            sample_html += '  </div>\n'
         
-        # アイテム情報の組み立て
-        html += f'<div class="ranking-item" style="margin-bottom: 40px; border: 1px solid #eee; padding: 15px; border-radius: 8px;">\n'
-        html += f'  <h3 style="color: #d32f2f;">第{rank}位： {title}</h3>\n'
+        # カードの組み立て
+        html += f'  <div class="ranking-item">\n'
+        html += f'    <div class="rank-badge">第{rank}位</div>\n'
+        html += f'    <div class="item-title"><a href="{affiliate_url}" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">{title}</a></div>\n'
         
         if image_url:
-            html += f'  <div class="item-image" style="text-align: center; margin: 20px 0;">\n'
-            html += f'    <a href="{affiliate_url}" target="_blank" rel="noopener">\n'
-            html += f'      <img src="{image_url}" alt="{title}" style="max-width: 100%; height: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">\n'
-            html += f'    </a>\n'
-            html += f'  </div>\n'
+            html += f'    <div class="main-image">\n'
+            html += f'      <a href="{affiliate_url}" target="_blank" rel="noopener">\n'
+            html += f'        <img src="{image_url}" alt="{title}">\n'
+            html += f'      </a>\n'
+            html += f'    </div>\n'
         
-        if introduction:
-            html += f'  <div class="item-description" style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 15px; line-height: 1.6;">\n'
-            html += f'    {introduction}\n'
-            html += f'  </div>\n'
+        html += f'    <table class="product-info-table">\n'
+        if actresses: html += f'      <tr><th>出演者</th><td>{sanitize_text(actresses)}</td></tr>\n'
+        if maker: html += f'      <tr><th>メーカー</th><td>{sanitize_text(maker)}</td></tr>\n'
+        if label: html += f'      <tr><th>レーベル</th><td>{sanitize_text(label)}</td></tr>\n'
+        if date: html += f'      <tr><th>配信開始</th><td>{date}</td></tr>\n'
+        html += f'    </table>\n'
         
-        # (ボタン部分を削除)
-        html += f'</div>\n'
+        if sample_html:
+            html += f'    <div style="font-size: 13px; font-weight: bold; color: #666; margin-top: 20px;">▼ サンプル画像パネル</div>\n'
+            html += f'    {sample_html}\n'
+            
+        html += f'  </div>\n'
         
-    html += "<p style='font-size: 0.8em; color: #777;'>※ランキング情報は記事作成時点のものです。最新の情報はリンク先でご確認ください。</p>\n"
+    html += '  <div class="ranking-footer">\n'
+    html += f'    <p>※ランキング情報は記事作成時点（{today_str}）のものです。最新の情報はリンク先（FANZA様サイト）にてご確認ください。</p>\n'
+    html += '  </div>\n'
+    html += '</div>\n'
     return html
 
 def main():
@@ -104,7 +141,7 @@ def main():
     parser.add_argument("--floor", type=str, default="videoa", help="手動指定時のフロア")
     parser.add_argument("--category", type=str, default=None, help="手動時のカテゴリ名")
     parser.add_argument("--hits", type=int, default=10, help="取得件数")
-    # --draft オプションを削除
+    # --draft を削除（常に公開）
     args = parser.parse_args()
 
     try:
@@ -148,7 +185,7 @@ def main():
         today_str = datetime.datetime.now().strftime("%Y/%m/%d")
         title = f"【{today_str}】FANZA売れ筋！【{target_category}】ランキング TOP{args.hits}"
         
-        # 常に公開（publish=True）に設定
+        # 常に公開
         is_publish = True
         print(f"ライブドアブログへ投稿中... [常に公開設定]")
         livedoor.post_article(title, article_html, categories=[target_category], publish=is_publish)
