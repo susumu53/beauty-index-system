@@ -7,16 +7,16 @@ from livedoor_autopost.livedoor_client import LivedoorClient
 # 24時間分のローテーション設定 (サービス, フロア, キーワード, 表示用カテゴリ/タイトル)
 # FC2の SCHEDULE_24H を継承
 SCHEDULE_24H = [
-    {"service": "doujin", "floor": None, "keyword": "同人CG", "category": "同人CG・ゲーム"},  # 0時
+    {"service": "digital", "floor": "videoa", "keyword": "競泳水着", "category": "競泳水着・スク水"},  # 0時 (同人から変更)
     {"service": "digital", "floor": "videoa", "keyword": "NTR", "category": "NTR"},  # 1時
-    {"service": "doujin", "floor": None, "keyword": "同人動画", "category": "同人動画"},  # 2時
+    {"service": "digital", "floor": "videoa", "keyword": "タイツ", "category": "パンスト・タイツ"},  # 2時 (同人から変更)
     {"service": "digital", "floor": "videoa", "keyword": "痴漢", "category": "痴漢"},  # 3時
-    {"service": "doujin", "floor": None, "keyword": "同人コミック", "category": "同人コミック"},  # 4時 (※同人作品)
+    {"service": "digital", "floor": "videoa", "keyword": "野外", "category": "野外・露出"},  # 4時 (同人から変更)
     {"service": "digital", "floor": "videoa", "keyword": "M字開脚", "category": "M字開脚"},  # 5時
     {"service": "digital", "floor": "videoa", "keyword": "巨乳", "category": "巨乳"},  # 6時
     {"service": "mono", "floor": "goods", "keyword": "オナホール", "category": "アダルトグッズ"},  # 7時
     {"service": "digital", "floor": "videoa", "keyword": "人妻", "category": "人妻・熟女"},  # 8時
-    {"service": "digital", "floor": "videoa", "keyword": "マイクロビキニ", "category": "マイクロビキニ"},  # 9時 (電子書籍から変更)
+    {"service": "digital", "floor": "videoa", "keyword": "マイクロビキニ", "category": "マイクロビキニ"},  # 9時
     {"service": "digital", "floor": "videoa", "keyword": "素人", "category": "素人ビデオ"},  # 10時
     {"service": "mono", "floor": "goods", "keyword": "コスプレ", "category": "コスプレグッズ"},  # 11時
     {"service": "digital", "floor": "videoa", "keyword": "企画", "category": "企画ビデオ"},  # 12時
@@ -26,9 +26,9 @@ SCHEDULE_24H = [
     {"service": "digital", "floor": "videoa", "keyword": "お姉さん", "category": "お姉さん"},  # 16時
     {"service": "mono", "floor": "goods", "keyword": "ローター", "category": "小型グッズ(ローター)"},  # 17時
     {"service": "digital", "floor": "videoa", "keyword": "単体", "category": "単体女優人気"},  # 18時
-    {"service": "doujin", "floor": None, "keyword": "ASMR", "category": "同人ボイス・ASMR"},  # 19時
+    {"service": "digital", "floor": "videoa", "keyword": "OL", "category": "OL・制服"},  # 19時 (同人から変更)
     {"service": "digital", "floor": "videoa", "keyword": "ギャル", "category": "ギャル"},  # 20時
-    {"service": "digital", "floor": "videoa", "keyword": "美脚", "category": "美脚・タイツ"},  # 21時 (電子書籍から変更)
+    {"service": "digital", "floor": "videoa", "keyword": "美脚", "category": "美脚・タイツ"},  # 21時
     {"service": "digital", "floor": "videoa", "keyword": "中出し", "category": "中出し"},  # 22時
     {"service": "digital", "floor": "videoa", "keyword": "VR", "category": "VRアダルト動画"},  # 23時
 ]
