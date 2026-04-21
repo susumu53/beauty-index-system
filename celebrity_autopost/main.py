@@ -1,144 +1,63 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-芸能人自動ブログ投稿システム
-ブログ: https://namasoku.seesaa.net/
-スケジュール: 1日4回（0時・6時・12時・18時 JST）
-
-処理フロー:
-1. Google News RSS からトレンド芸能人を自動選定
-2. Wikipedia からプロフィール・経歴を取得
-3. Google News から最新ニュース（3件）を取得
-4. DMM API から関連作品・商品（一般のみ）を取得
-5. テンプレートベースで HTML 記事を組み立て
-6. Seesaa Blog に XML-RPC で投稿
-"""
-
-import sys
 import os
-import traceback
+import sys
+import importlib
 from datetime import datetime
 
-# Windows での文字化け対策
-if sys.stdout.encoding and sys.stdout.encoding.lower() not in ('utf-8', 'utf_8'):
-    import io
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+# Ensure project root is in sys.path for imports
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
-# 同フォルダのモジュールをインポート
-sys.path.insert(0, os.path.dirname(__file__))
+# Mapping of UTC hour -> generator module name
+HOUR_TO_GENERATOR = {
+    0: "buzz_ranking_generator",   # 9:00 JST
+    4: "birthday_generator",       # 13:00 JST
+    8: "hometown_generator",       # 17:00 JST
+    12: "costar_generator",        # 21:00 JST
+    16: "sentiment_generator",     # 1:00 JST (next day)
+    20: "trending_generator",      # 5:00 JST (next day)
+}
 
-from news_fetcher import get_trending_celebrity, get_celebrity_news, mark_as_posted
-from wiki_fetcher import get_wiki_profile
-from dmm_fetcher import DMMCelebFetcher
-from article_builder import build_article_html, build_article_title
-from seesaa_poster import SeesaaCelebPoster
+def load_generator(module_name: str):
+    """動的にジェネレータモジュールをインポートし、run 関数を取得"""
+    try:
+        mod = importlib.import_module(f"generators.{module_name}")
+        return getattr(mod, "run")
+    except Exception as e:
+        print(f"[main] ジェネレータ {module_name} のロードに失敗: {e}")
+        return None
 
 
 def main():
-    print("=" * 60)
-    print("[START] 芸能人自動投稿システム 開始")
-    print("        実行時刻: " + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    print("=" * 60)
+    utc_hour = datetime.utcnow().hour
+    generator_name = HOUR_TO_GENERATOR.get(utc_hour)
+    if not generator_name:
+        print(f"[main] 現在のUTC時刻 {utc_hour} は投稿対象外です。終了します。")
+        return
 
-    # Step 1: トレンド芸能人を取得
-    print("\n[Step 1] トレンド芸能人を取得中...")
-    celebrity_name = get_trending_celebrity()
+    print(f"[main] 現在UTC {utc_hour} 時、ジェネレータ '{generator_name}' を実行します。")
+    generator_func = load_generator(generator_name)
+    if not generator_func:
+        print("[main] ジェネレータ関数が取得できませんでした。終了します。")
+        return
 
-    if not celebrity_name:
-        print("[ERROR] トレンド芸能人が取得できませんでした。処理を終了します。")
-        sys.exit(1)
+    result = generator_func()
+    if not result:
+        print("[main] ジェネレータが有効な記事を生成しませんでした。終了します。")
+        return
 
-    print("         対象芸能人: " + celebrity_name)
-
-    # Step 2: Wikipedia プロフィール取得
-    print("\n[Step 2] Wikipedia プロフィール取得中... (" + celebrity_name + ")")
-    wiki_profile = get_wiki_profile(celebrity_name)
-
-    if wiki_profile:
-        print("         職業: " + wiki_profile.get('occupation', '不明'))
-        print("         生年月日: " + wiki_profile.get('birth_date', '不明'))
-    else:
-        print("         [WARN] Wikipedia情報が見つかりませんでした（記事は続行します）")
-
-    # Step 3: 最新ニュース取得
-    print("\n[Step 3] 最新ニュース取得中... (" + celebrity_name + ")")
-    news_list = get_celebrity_news(celebrity_name, max_articles=3)
-    print("         取得件数: " + str(len(news_list)) + "件")
-    for news in news_list:
-        print("         - " + news['title'][:60])
-
-    # Step 4: DMM 商品取得
-    print("\n[Step 4] DMM 商品取得中... (" + celebrity_name + ")")
-    youtube_video_id = None
-    dmm_products = []
-
-    try:
-        dmm = DMMCelebFetcher()
-        dmm_products = dmm.search_celebrity_products(celebrity_name, max_items=5)
-        print("         取得件数: " + str(len(dmm_products)) + "件")
-
-        if not dmm_products:
-            print("         [WARN] DMM商品なし -> YouTubeフォールバックを試みます")
-            youtube_video_id = dmm.get_youtube_fallback(celebrity_name)
-            if youtube_video_id:
-                print("         YouTube動画ID: " + youtube_video_id)
-
-    except Exception as e:
-        print("         [ERROR] DMM取得エラー: " + str(e))
-        dmm_products = []
-
-    # Step 5: HTML 記事生成
-    print("\n[Step 5] HTML記事を生成中...")
-
-    title = build_article_title(celebrity_name, news_list)
-    html_content = build_article_html(
-        celebrity_name=celebrity_name,
-        wiki_profile=wiki_profile,
-        news_list=news_list,
-        dmm_products=dmm_products,
-        youtube_video_id=youtube_video_id,
-    )
-
-    print("         タイトル: " + title)
-    print("         HTML長さ: " + str(len(html_content)) + "文字")
-
-    # Step 6: Seesaa Blog に投稿
-    print("\n[Step 6] Seesaa Blog に投稿中...")
-
-    tags = [celebrity_name, "芸能人", "最新情報", "プロフィール", "エンタメ"]
-    if wiki_profile and wiki_profile.get("occupation"):
-        for occ in wiki_profile["occupation"].split("・"):
-            tags.append(occ.strip())
-
-    categories = ["芸能人", "エンタメニュース"]
-
+    # Seesaa 投稿
+    from seesaa_poster import SeesaaCelebPoster
     poster = SeesaaCelebPoster()
-    post_id = poster.post_article(
-        title=title,
-        html_content=html_content,
-        categories=categories,
-        tags=tags[:10],
-    )
-
+    post_id = poster.post_article(title=result["title"], html=result["html"], tags=result.get("tags", []))
     if post_id:
-        mark_as_posted(celebrity_name)
-        print("\n[OK] 投稿完了!")
-        print("     タイトル: " + title)
-        print("     投稿ID: " + str(post_id))
-        print("     ブログ: https://namasoku.seesaa.net/")
+        print(f"[main] 記事投稿成功！ ID: {post_id}")
     else:
-        print("\n[ERROR] 投稿に失敗しました")
-        sys.exit(1)
-
-    print("\n" + "=" * 60)
-    print("[DONE] 処理完了")
-    print("=" * 60)
-
+        print("[main] 記事投稿に失敗しました。")
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:
-        print("\n[FATAL] 予期しないエラーが発生しました:")
-        traceback.print_exc()
-        sys.exit(1)
+    # Windows 環境での文字化け対策（UTF-8 強制）
+    if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf_8"):
+        import io
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    main()
