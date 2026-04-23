@@ -1,49 +1,21 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776978732.695119    2750 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776978732.700693    2754 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776978732.707709    2750 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978811.000783    2826 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978811.006807    2830 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978811.014360    2826 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: 桃月なしこ (3D)
+Starting analysis for: 前田敦子 (3D)
 
---- Objective Analysis for 3D Subject: 桃月なしこ ---
-Actress '桃月なしこ' not found by name search. Falling back to keyword search...
-Found 50 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【電子版だけの特典カットつき】桃月なしこ2nd写真... - Face Occ: 0.123
-  [2] 【DMM限定版】桃月なしこ デジタル写真集 恋の議... - Face Occ: 0.051
-  [3] 桃月なしこ デジタル写真集 オンオフの向こう側... - Face Occ: 0.036
-  [4] B.L.T.デジタル写真集 桃月なしこ BE TH... - Face Occ: 0.034
-  [6] ゼロイチ学園 シーズン2 桃月なしこ... - Face Occ: 0.026
-  [7] FLASHデジタル写真集 桃月なしこ Queen ... - Face Occ: 0.039
-  [8] 【電子版だけの特典カットつき！】桃月なしこ1st写... - Face Occ: 0.05
-  [10] 【DMM限定版】桃月なしこ デジタル写真集 静寂に... - Face Occ: 0.023
-  [12] 【DMM限定版】桃月なしこ デジタル写真集 初恋フ... - Face Occ: 0.056
-  [14] 【DMM限定版】桃月なしこ デジタル写真集 今日、... - Face Occ: 0.067
-  [16] 桃月なしこ 最後の夏休み ヤンマガデジタル写真集... - Face Occ: 0.081
-  [18] 【DMM限定版】桃月なしこ デジタル写真集 カンパ... - Face Occ: 0.148
-  [21] 桃月なしこ デジタル写真集 Fortune Rid... - Face Occ: 0.04
-  [23] 【DMM限定版】桃月なしこ デジタル写真集 ギラめ... - Face Occ: 0.077
-  [24] 【DMM限定版】桃月なしこ デジタル写真集 ふれて... - Face Occ: 0.043
-  [27] 桃月なしこ デジタル写真集 恋は経費で落ちますか？... - Face Occ: 0.05
-  [28] 桃月なしこ完全版 Part.1 ヤンマガデジタル写... - Face Occ: 0.145
-  [29] FLASHデジタル写真集 桃月なしこ 何度だって…... - Face Occ: 0.095
-  [30] 【DMM限定版】桃月なしこ デジタル写真集 夏恋め... - Face Occ: 0.094
-  [31] 【電子版だけの特典カットつき】桃月なしこ2nd写真... - Face Occ: 0.123
-  [32] 【DMM限定版】桃月なしこ デジタル写真集 恋の議... - Face Occ: 0.051
-  [33] 桃月なしこ デジタル写真集 オンオフの向こう側... - Face Occ: 0.036
-  [34] B.L.T.デジタル写真集 桃月なしこ BE TH... - Face Occ: 0.034
-  [36] ゼロイチ学園 シーズン2 桃月なしこ... - Face Occ: 0.026
-  [37] FLASHデジタル写真集 桃月なしこ Queen ... - Face Occ: 0.039
-  [38] 【電子版だけの特典カットつき！】桃月なしこ1st写... - Face Occ: 0.05
-  [40] 【DMM限定版】桃月なしこ デジタル写真集 静寂に... - Face Occ: 0.023
-  [42] 【DMM限定版】桃月なしこ デジタル写真集 初恋フ... - Face Occ: 0.056
-  [44] 【DMM限定版】桃月なしこ デジタル写真集 今日、... - Face Occ: 0.067
-  [46] 桃月なしこ 最後の夏休み ヤンマガデジタル写真集... - Face Occ: 0.081
-  [48] 【DMM限定版】桃月なしこ デジタル写真集 カンパ... - Face Occ: 0.148
+--- Objective Analysis for 3D Subject: 前田敦子 ---
+Actress '前田敦子' not found by name search. Falling back to keyword search...
+Found 6 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 【電子版だけの特典カットつき】前田敦子写真集 Be... - Face Occ: 0.071
+  [4] 【電子版だけの特典カットつき】前田敦子写真集 Be... - Face Occ: 0.071
+Database: Updating record for 前田敦子 (Old Max: 75.53 -> New: 75.53)
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/24/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e6%a1%83%e6%9c%88%e3%81%aa%e3%81%97%e3%81%93/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/24/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%89%8d%e7%94%b0%e6%95%a6%e5%ad%90-%e3%81%ae/
 Sending data to WordPress Ranking API...
 Successfully updated real-time ranking data.
 
