@@ -1,42 +1,24 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776978882.279212    2820 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776978882.285078    2824 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776978882.293041    2820 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978962.386947    2619 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978962.391260    2623 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978962.398313    2619 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: 天羽希純 (3D)
+Starting analysis for: 後藤真希 (3D)
 
---- Objective Analysis for 3D Subject: 天羽希純 ---
-Actress '天羽希純' not found by name search. Falling back to keyword search...
-Found 50 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 天羽希純写真集「超BONUSタイム」... - Face Occ: 0.142
-  [2] 天羽希純写真集「BONUS」... - Face Occ: 0.062
-  [3] 天羽希純「おねがいパイレーツ」 BUBKAデジタル... - Face Occ: 0.146
-  [4] 天羽希純『週プレ プラス！』アザーカット集「いくぜ... - Face Occ: 0.049
-  [8] 漫画アクションデジタル写真集 天羽希純「恋のおわり... - Face Occ: 0.034
-  [10] 天羽希純写真集「きすみすき」... - Face Occ: 0.041
-  [12] 天羽希純「明るいドラマ」SPA！グラビアン魂デジタ... - Face Occ: 0.03
-  [14] ゼロイチ学園 シーズン2 天羽希純... - Face Occ: 0.051
-  [15] 天羽希純「ダイタン・ミッドナイト」 DOLCEデジ... - Face Occ: 0.023
-  [23] 【デジタル限定】天羽希純 デジタルPHOTOBOO... - Face Occ: 0.117
-  [24] 【デジタル限定】天羽希純写真集「CUTE＆SEXY... - Face Occ: 0.042
-  [25] 天羽希純 デジタル写真集 ハートストライク... - Face Occ: 0.079
-  [26] 【DMM限定版】天羽希純 デジタル写真集 キスショ... - Face Occ: 0.039
-  [28] 天羽希純 もっと！教えて あまう先輩！！... - Face Occ: 0.082
-  [29] 【デジタル限定】天羽希純写真集「もっと見せたいー続... - Face Occ: 0.345
-  [31] 天羽希純写真集「超BONUSタイム」... - Face Occ: 0.142
-  [32] 天羽希純写真集「BONUS」... - Face Occ: 0.062
-  [33] 天羽希純「おねがいパイレーツ」 BUBKAデジタル... - Face Occ: 0.146
-  [34] 天羽希純『週プレ プラス！』アザーカット集「いくぜ... - Face Occ: 0.049
-  [38] 漫画アクションデジタル写真集 天羽希純「恋のおわり... - Face Occ: 0.034
-  [40] 天羽希純写真集「きすみすき」... - Face Occ: 0.041
-  [42] 天羽希純「明るいドラマ」SPA！グラビアン魂デジタ... - Face Occ: 0.03
-  [44] ゼロイチ学園 シーズン2 天羽希純... - Face Occ: 0.051
-  [45] 天羽希純「ダイタン・ミッドナイト」 DOLCEデジ... - Face Occ: 0.023
+--- Objective Analysis for 3D Subject: 後藤真希 ---
+Actress '後藤真希' not found by name search. Falling back to keyword search...
+Found 6 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 【DMM限定カット付き】後藤真希 写真集 flos... - Face Occ: 0.334
+  [2] 【デジタル限定】後藤真希 写真集 flos tha... - Face Occ: 0.184
+  [3] 【電子書籍限定カット再追加！】後藤真希写真集 ra... - Face Occ: 0.151
+  [4] 【DMM限定カット付き】後藤真希 写真集 flos... - Face Occ: 0.334
+  [5] 【デジタル限定】後藤真希 写真集 flos tha... - Face Occ: 0.184
+  [6] 【電子書籍限定カット再追加！】後藤真希写真集 ra... - Face Occ: 0.151
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/24/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%a4%a9%e7%be%bd%e5%b8%8c%e7%b4%94-%e3%81%ae/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/24/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%be%8c%e8%97%a4%e7%9c%9f%e5%b8%8c-%e3%81%ae/
 Sending data to WordPress Ranking API...
 Successfully updated real-time ranking data.
 
