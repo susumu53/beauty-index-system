@@ -1,23 +1,24 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776909271.908919    2869 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776909271.912578    2873 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776909271.922543    2869 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978654.177987    2844 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978654.184606    2849 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776978654.191153    2845 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: 広末涼子 (3D)
+Starting analysis for: 福原遥 (3D)
 
---- Objective Analysis for 3D Subject: 広末涼子 ---
-Actress '広末涼子' not found by name search. Falling back to keyword search...
-Found 8 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [3] 【デジタル特別版】広末涼子写真集 C’est la... - Face Occ: 0.164
-  [4] 【デジタル限定 YJ PHOTO BOOK】広末涼... - Face Occ: 0.304
-  [7] 【デジタル特別版】広末涼子写真集 C’est la... - Face Occ: 0.164
-  [8] 【デジタル限定 YJ PHOTO BOOK】広末涼... - Face Occ: 0.304
-Database: Updating record for 広末涼子 (Old Max: 80.82 -> New: 80.82)
+--- Objective Analysis for 3D Subject: 福原遥 ---
+Actress '福原遥' not found by name search. Falling back to keyword search...
+Found 14 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [3] 福原遥 写真集 『 いつのまにか。 』... - Face Occ: 0.102
+  [5] 【電子版特典画像付き】福原遥フォトブック gift... - Face Occ: 0.494
+  [6] 福原遥 写真集 『 これから。 』... - Face Occ: 0.246
+  [10] 福原遥 写真集 『 いつのまにか。 』... - Face Occ: 0.102
+  [12] 【電子版特典画像付き】福原遥フォトブック gift... - Face Occ: 0.494
+  [13] 福原遥 写真集 『 これから。 』... - Face Occ: 0.246
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/23/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%ba%83%e6%9c%ab%e6%b6%bc%e5%ad%90-%e3%81%ae/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/24/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e7%a6%8f%e5%8e%9f%e9%81%a5-%e3%81%ae%e5%ae%a2/
 Sending data to WordPress Ranking API...
 Successfully updated real-time ranking data.
 
