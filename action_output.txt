@@ -1,27 +1,25 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776849202.387268    2798 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776849202.391449    2803 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776849202.399575    2798 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776909271.908919    2869 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776909271.912578    2873 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1776909271.922543    2869 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: 浜辺美波 (3D)
+Starting analysis for: 広末涼子 (3D)
 
---- Objective Analysis for 3D Subject: 浜辺美波 ---
-Actress '浜辺美波' not found by name search. Falling back to keyword search...
-Found 18 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【電子書籍限定カット付き！】浜辺美波写真集 25... - Face Occ: 0.431
-  [2] 【電子書籍限定カット付き！】浜辺美波写真集 20... - Face Occ: 0.344
-  [9] 【電子特別版】浜辺美波写真集 voyage... - Face Occ: 0.206
-  [10] 【電子書籍限定カット付き！】浜辺美波写真集 25... - Face Occ: 0.431
-  [11] 【電子書籍限定カット付き！】浜辺美波写真集 20... - Face Occ: 0.344
-  [18] 【電子特別版】浜辺美波写真集 voyage... - Face Occ: 0.206
-Database: Updating record for 浜辺美波 (Old Max: 85.57 -> New: 85.57)
+--- Objective Analysis for 3D Subject: 広末涼子 ---
+Actress '広末涼子' not found by name search. Falling back to keyword search...
+Found 8 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [3] 【デジタル特別版】広末涼子写真集 C’est la... - Face Occ: 0.164
+  [4] 【デジタル限定 YJ PHOTO BOOK】広末涼... - Face Occ: 0.304
+  [7] 【デジタル特別版】広末涼子写真集 C’est la... - Face Occ: 0.164
+  [8] 【デジタル限定 YJ PHOTO BOOK】広末涼... - Face Occ: 0.304
+Database: Updating record for 広末涼子 (Old Max: 80.82 -> New: 80.82)
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/22/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e6%b5%9c%e8%be%ba%e7%be%8e%e6%b3%a2-%e3%81%ae/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/23/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%ba%83%e6%9c%ab%e6%b6%bc%e5%ad%90-%e3%81%ae/
 Sending data to WordPress Ranking API...
 Successfully updated real-time ranking data.
 
 --- Updating Official Ranking Page ---
-Ranking report successfully CREATED: http://ss660231.stars.ne.jp/2026/04/22/official-beauty-ranking/
+Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/2026/04/22/official-beauty-ranking/
