@@ -1,14 +1,15 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1777154179.973105    2810 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1777154179.978975    2814 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1777154179.986707    2810 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-Starting analysis for: 菊池姫奈 (3D)
+W0000 00:00:1777154736.813076    2812 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1777154736.817337    2817 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1777154736.825220    2812 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+Starting analysis for: 綾瀬はるか (3D)
 
---- Objective Analysis for 3D Subject: 菊池姫奈 ---
-Actress '菊池姫奈' not found by name search. Falling back to keyword search...
+--- Objective Analysis for 3D Subject: 綾瀬はるか ---
+Actress '綾瀬はるか' not found by name search. Falling back to keyword search...
 DMM API Error (get_anime_works): 400
-No works found for 菊池姫奈
+Found 9 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+Failed to analyze any images.
 
 --- Updating Official Ranking Page ---
 Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/2026/04/22/official-beauty-ranking/
