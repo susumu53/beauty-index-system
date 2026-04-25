@@ -1,26 +1,14 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1776978962.386947    2619 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776978962.391260    2623 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1776978962.398313    2619 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
-  warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: 後藤真希 (3D)
+W0000 00:00:1777151585.619720    2860 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1777151585.625666    2864 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1777151585.632592    2860 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+Starting analysis for: 吉岡里穂 (3D)
 
---- Objective Analysis for 3D Subject: 後藤真希 ---
-Actress '後藤真希' not found by name search. Falling back to keyword search...
-Found 6 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【DMM限定カット付き】後藤真希 写真集 flos... - Face Occ: 0.334
-  [2] 【デジタル限定】後藤真希 写真集 flos tha... - Face Occ: 0.184
-  [3] 【電子書籍限定カット再追加！】後藤真希写真集 ra... - Face Occ: 0.151
-  [4] 【DMM限定カット付き】後藤真希 写真集 flos... - Face Occ: 0.334
-  [5] 【デジタル限定】後藤真希 写真集 flos tha... - Face Occ: 0.184
-  [6] 【電子書籍限定カット再追加！】後藤真希写真集 ra... - Face Occ: 0.151
-
-Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/24/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%be%8c%e8%97%a4%e7%9c%9f%e5%b8%8c-%e3%81%ae/
-Sending data to WordPress Ranking API...
-Successfully updated real-time ranking data.
+--- Objective Analysis for 3D Subject: 吉岡里穂 ---
+Actress '吉岡里穂' not found by name search. Falling back to keyword search...
+DMM API Error (get_anime_works): 400
+No works found for 吉岡里穂
 
 --- Updating Official Ranking Page ---
 Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/2026/04/22/official-beauty-ranking/
