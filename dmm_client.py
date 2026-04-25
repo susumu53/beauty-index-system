@@ -23,11 +23,16 @@ class DMMClient:
         if actress_id:
             params["actress_id"] = actress_id
             
-        response = requests.get(f"{self.base_url}/ActressSearch", params=params)
-        data = response.json()
-        
-        if "result" in data and "actress" in data["result"]:
-            return data["result"]["actress"]
+        try:
+            response = requests.get(f"{self.base_url}/ActressSearch", params=params, timeout=10)
+            if response.status_code != 200:
+                print(f"DMM API Error (ActressSearch): {response.status_code}")
+                return []
+            data = response.json()
+            if "result" in data and "actress" in data["result"]:
+                return data["result"]["actress"]
+        except Exception as e:
+            print(f"DMM API Exception (ActressSearch): {e}")
         return []
 
     def get_actress_works(self, actress_id, hits=10, site="FANZA", service="digital", floor=None, keyword=None):
@@ -47,11 +52,16 @@ class DMMClient:
         if keyword:
             params["keyword"] = keyword
             
-        response = requests.get(f"{self.base_url}/ItemList", params=params)
-        data = response.json()
-        
-        if "result" in data and "items" in data["result"]:
-            return data["result"]["items"]
+        try:
+            response = requests.get(f"{self.base_url}/ItemList", params=params, timeout=10)
+            if response.status_code != 200:
+                print(f"DMM API Error (get_actress_works): {response.status_code}")
+                return []
+            data = response.json()
+            if "result" in data and "items" in data["result"]:
+                return data["result"]["items"]
+        except Exception as e:
+            print(f"DMM API Exception (get_actress_works): {e}")
         return []
 
     def get_anime_works(self, keyword, hits=10, service="digital", floor=None):
@@ -68,16 +78,20 @@ class DMMClient:
         if floor:
             params["floor"] = floor
             
-        response = requests.get(f"{self.base_url}/ItemList", params=params)
-        data = response.json()
-        
-        if "result" in data and "items" in data["result"]:
-            return data["result"]["items"]
-        
-        # フォールバック: serviceを変えて再試行
-        if service == "digital":
-            return self.get_anime_works(keyword, hits, service="ebook")
+        try:
+            response = requests.get(f"{self.base_url}/ItemList", params=params, timeout=10)
+            if response.status_code != 200:
+                print(f"DMM API Error (get_anime_works): {response.status_code}")
+                return []
+            data = response.json()
+            if "result" in data and "items" in data["result"]:
+                return data["result"]["items"]
             
+            # フォールバック: serviceを変えて再試行
+            if service == "digital":
+                return self.get_anime_works(keyword, hits, service="ebook")
+        except Exception as e:
+            print(f"DMM API Exception (get_anime_works): {e}")
         return []
 
     def get_top_fanza_works(self, service="digital", floor="videoa", hits=10, keyword=None):
@@ -98,12 +112,16 @@ class DMMClient:
         if keyword:
             params["keyword"] = keyword
             
-        response = requests.get(f"{self.base_url}/ItemList", params=params)
-        data = response.json()
-        
-        if "result" in data and "items" in data["result"]:
-            return data["result"]["items"]
-        
+        try:
+            response = requests.get(f"{self.base_url}/ItemList", params=params, timeout=10)
+            if response.status_code != 200:
+                print(f"DMM API Error (get_top_fanza_works): {response.status_code}")
+                return []
+            data = response.json()
+            if "result" in data and "items" in data["result"]:
+                return data["result"]["items"]
+        except Exception as e:
+            print(f"DMM API Exception (get_top_fanza_works): {e}")
         return []
 
 if __name__ == "__main__":

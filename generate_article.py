@@ -11,14 +11,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class BeautyManager:
-    def __init__(self):
+    def __init__(self, db_path=None):
         self.client = DMMClient()
         self.amazon = AmazonPAClient()
         self.engine = BeautyEngine()
         self.uploader = WPUploader()
-        self.db = BeautyDatabase()
+        self.db = BeautyDatabase(db_path=db_path)
 
-    def _fetch_and_analyze(self, name, category, keyword_override=None, required_image_count=3):
+    def _fetch_and_analyze(self, name, category, keyword_override=None, required_image_count=3, strict_fanza=False):
         """1人の対象を深く分析し、顔占有率の高い画像を複数取得する"""
         print(f"\n--- Objective Analysis for {category} Subject: {name} ---")
         
@@ -30,9 +30,12 @@ class BeautyManager:
         works = []
         is_2d_flag = (category == "2D")
         
-        if category == "3D":
+        if category in ["3D", "AV"]:
             actresses = self.client.search_actress(name=name)
             if not actresses: 
+                if strict_fanza:
+                    print(f"Strict Mode: Subject '{name}' not found in FANZA actress DB. Aborting.")
+                    return None
                 print(f"Actress '{name}' not found by name search. Falling back to keyword search...")
                 # 女優DBで見つからない場合はキーワード検索でリトライ (一般タレント等)
                 display_name = name
@@ -44,13 +47,23 @@ class BeautyManager:
                 display_name = a['name']
                 print(f"Found actress: {display_name}")
                 
-                # 幅広く検索して占有率の高いものを探す (最大50件)
-                print("Fetching works from DMM.com and Amazon...")
-                w1 = self.client.get_anime_works(keyword=f"{display_name} 写真集", hits=30, service="ebook")
-                w2 = self.client.get_anime_works(keyword=f"{display_name} 写真集", hits=20, service="digital", floor="digital_book")
-                amz = self.amazon.search_works(keyword=f"{display_name} 写真集", hits=10)
-                works = w1 + w2 + amz
+                # 幅広く検索して占有率の高いものを探す (最大60件)
+                print(f"Fetching works for {display_name}...")
+                w3 = self.client.get_top_fanza_works(keyword=f"{display_name}", hits=20)
+                
+                if not strict_fanza:
+                    # 一般ソースも併用 (WP用など)
+                    w1 = self.client.get_anime_works(keyword=f"{display_name} 写真集", hits=30, service="ebook")
+                    w2 = self.client.get_anime_works(keyword=f"{display_name} 写真集", hits=20, service="digital", floor="digital_book")
+                    amz = self.amazon.search_works(keyword=f"{display_name} 写真集", hits=10)
+                    works = w1 + w2 + w3 + amz
+                else:
+                    # FANZAのみ
+                    works = w3
         else:
+            if strict_fanza:
+                print("Strict Mode: 2D category is not supported. Aborting.")
+                return None
             keyword = keyword_override or name
             display_name = name
             print(f"Fetching 2D works for: {display_name}")
@@ -110,7 +123,7 @@ class BeautyManager:
         best_candidate = selected_candidates[0]
         best_res = best_candidate['res']
 
-        proportion_data = {"whr": 0.68, "height": 160} if category == "3D" else None
+        proportion_data = {"whr": 0.68, "height": 160} if category in ["3D", "AV"] else None
         total_score = self.engine.calculate_beauty_index(best_res, proportion_data)
 
         # サムネイル画像の取得
@@ -127,12 +140,24 @@ class BeautyManager:
         calc_social_meme = round(65.0 + work_score + (hash_val * 8.0), 1)
         
         # その他固定値だった指標も対象ごとに微細な揺らぎ（個体差）を持たせる
-        prop_base = 90.0 if category == "3D" else 85.0
+        prop_base = 90.0 if category in ["3D", "AV"] else 85.0
         calc_proportion = round(prop_base + (hash_val * 6.0) - 3.0, 1)
         calc_dimorphism = round(85.0 + (hash_val * 8.0) - 4.0, 1)
 
         # affiliate_urlはソースがAmazonの場合はそのまま使用し、DMMの場合はID置換を行う
         aff_url_raw = best_candidate['item'].get('affiliateURL', '')
+        
+        if strict_fanza and "amazon.co.jp" in aff_url_raw:
+            # FANZAリンクを優先して探す (DB保存用)
+            fanza_link = None
+            for item in works:
+                raw_link = item.get('affiliateURL', '')
+                if "dmm.co.jp" in raw_link or "fanza.com" in raw_link:
+                    fanza_link = raw_link
+                    break
+            if fanza_link:
+                aff_url_raw = fanza_link
+
         if "amazon.co.jp" not in aff_url_raw:
             affiliate_url = aff_url_raw.replace("namasoku-990", "namasoku-001")
         else:
@@ -241,10 +266,10 @@ class BeautyManager:
         """
         return html
 
-    def run_objective_analysis(self, name, category="3D", keyword=None):
+    def run_objective_analysis(self, name, category="3D", keyword=None, strict_fanza=False, update_wp=True):
         """単一対象の客観的分析のメインフロー"""
         
-        res_data = self._fetch_and_analyze(name, category, keyword_override=keyword)
+        res_data = self._fetch_and_analyze(name, category, keyword_override=keyword, strict_fanza=strict_fanza)
         if not res_data: return
 
         # チャート生成 (対象者のみ)
@@ -297,7 +322,7 @@ class BeautyManager:
                 wp_user = os.getenv("WP_USERNAME")
                 wp_pass = os.getenv("WP_APP_PASSWORD")
                 
-                if wp_url and wp_user and wp_pass:
+                if update_wp and wp_url and wp_user and wp_pass:
                     endpoint = f"{wp_url.rstrip('/')}/wp-json/beauty-index/v1/update-score"
                     payload = {
                         "name": res_data['name'],

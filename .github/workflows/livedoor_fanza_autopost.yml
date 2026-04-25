@@ -22,10 +22,15 @@ jobs:
         with:
           python-version: '3.10'
           
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1-mesa-glx libglib2.0-0
+          
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests python-dotenv
+          pip install -r requirements.txt
           
       - name: Run Auto Post Script
         env:
@@ -34,6 +39,12 @@ jobs:
           LIVEDOOR_ID: ${{ secrets.LIVEDOOR_ID }}
           LIVEDOOR_BLOG_ID: ${{ secrets.LIVEDOOR_BLOG_ID }}
           LIVEDOOR_API_KEY: ${{ secrets.LIVEDOOR_API_KEY }}
+          AMAZON_ACCESS_KEY: ${{ secrets.AMAZON_ACCESS_KEY }}
+          AMAZON_SECRET_KEY: ${{ secrets.AMAZON_SECRET_KEY }}
+          AMAZON_PARTNER_TAG: ${{ secrets.AMAZON_PARTNER_TAG }}
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
         run: |
           if [ -n "${{ github.event.inputs.keyword }}" ]; then
             # 手動実行でキーワードがある場合
@@ -42,3 +53,12 @@ jobs:
             # 定期実行
             python generate_livedoor_ranking.py --hits 10
           fi
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add beauty_index_fanza.db last_actresses.json
+          git commit -m "Update FANZA ranking database and actress list" || echo "No changes to commit"
+          git pull --rebase origin main
+          git push

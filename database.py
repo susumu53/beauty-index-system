@@ -3,8 +3,13 @@ from datetime import datetime
 import os
 
 class BeautyDatabase:
-    def __init__(self, db_path="beauty_index.db"):
-        self.db_path = db_path
+    def __init__(self, db_path=None):
+        if db_path is None:
+            # スクリプトの場所を基準にする
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            self.db_path = os.path.join(base_dir, "beauty_index.db")
+        else:
+            self.db_path = db_path
         self._create_table()
 
     def _get_connection(self):
@@ -69,7 +74,7 @@ class BeautyDatabase:
             conn.execute(query, values)
 
     def get_rankings(self, category=None, limit=10):
-        query = "SELECT name, total_score, category, affiliate_url FROM scores"
+        query = "SELECT name, total_score, category, affiliate_url, image_url, symmetry, neoteny, proportion, dimorphism, social_meme FROM scores"
         params = []
         if category:
             query += " WHERE category = ?"
@@ -81,6 +86,13 @@ class BeautyDatabase:
             cursor = conn.cursor()
             cursor.execute(query, params)
             return cursor.fetchall()
+
+    def get_score_by_name(self, name, category="3D"):
+        query = "SELECT name, total_score, category, affiliate_url, image_url, symmetry, neoteny, proportion, dimorphism, social_meme FROM scores WHERE name = ? AND category = ?"
+        with self._get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute(query, (name, category))
+            return cursor.fetchone()
 
 if __name__ == "__main__":
     db = BeautyDatabase()
