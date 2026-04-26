@@ -1,22 +1,38 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1777154848.345542    2806 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1777154848.351026    2808 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1777154848.360334    2806 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1777240097.409846    2801 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1777240097.416151    2805 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1777240097.423701    2801 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: 和田海佑 (3D)
+Starting analysis for: あまつまりな (3D)
 
---- Objective Analysis for 3D Subject: 和田海佑 ---
-Actress '和田海佑' not found by name search. Falling back to keyword search...
+--- Objective Analysis for 3D Subject: あまつまりな ---
+Actress 'あまつまりな' not found by name search. Falling back to keyword search...
 DMM API Error (get_anime_works): 400
-Found 6 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【DMM限定版】和田海佑 デジタル写真集 みゅうジ... - Face Occ: 0.069
-  [2] 和田海佑 デジタル写真集 キミだけにバズりたい... - Face Occ: 0.062
-  [3] 和田海佑 1stデジタル写真集「Honeymoon... - Face Occ: 0.133
+Found 30 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] あまつまりな写真集 AS IF... - Face Occ: 0.242
+  [2] 【デジタル限定】あまつまりな写真集 AS IF オ... - Face Occ: 0.146
+  [3] 【デジタル限定】あまつまりな写真集 AS IF オ... - Face Occ: 0.087
+  [4] 【デジタル限定】あまつまりな写真集 Lace up... - Face Occ: 0.027
+  [6] 【電子版限定30ページ増】あまつまりな写真集 La... - Face Occ: 0.053
+  [11] あまつまりな 幻想曲は密やかに... - Face Occ: 0.055
+  [12] FLASHデジタル写真集 あまつまりな 天女の誘惑... - Face Occ: 0.062
+  [14] あまつまりな「ツナギを脱いだら」SPA！デジタル写... - Face Occ: 0.141
+  [15] Platinum FLASHデジタル写真集 あまつ... - Face Occ: 0.073
+  [16] あまつまりな 湿った夏の艶めき... - Face Occ: 0.059
+  [17] あまつまりな 楚楚... - Face Occ: 0.027
+  [18] あまつまりな デジタル写真集 シルクな素肌... - Face Occ: 0.033
+  [19] Platinum FLASHデジタル写真集 あまつ... - Face Occ: 0.111
+  [20] 【デジタル限定】あまつまりな写真集... - Face Occ: 0.024
+  [25] あまつまりな写真集 See-through... - Face Occ: 0.311
+  [26] 【デジタル限定】あまつまりな写真集「アートなカーヴ... - Face Occ: 0.077
+  [27] FLASHデジタル写真集 あまつまりな 私は絵画に... - Face Occ: 0.081
+  [28] あまつまりなヤングガンガンデジタル限定写真集「新人... - Face Occ: 0.09
+  [29] 【デジタル限定】あまつまりな写真集「あまつまりなは... - Face Occ: 0.112
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/04/26/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%92%8c%e7%94%b0%e6%b5%b7%e4%bd%91-%e3%81%ae/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/04/27/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e3%81%82%e3%81%be%e3%81%a4%e3%81%be%e3%82%8a%e3%81%aa/
 Sending data to WordPress Ranking API...
 Successfully updated real-time ranking data.
 
