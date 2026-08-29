@@ -1,20 +1,24 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1787563079.356538    2625 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1787563079.361334    2627 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1787563079.366943    2623 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1787976902.909449    2756 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1787976902.915794    2760 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1787976902.922275    2756 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: 前田敦子 (3D)
+Starting analysis for: 浜辺美波 (3D)
 
---- Objective Analysis for 3D Subject: 前田敦子 ---
-Actress '前田敦子' not found by name search. Falling back to keyword search...
+--- Objective Analysis for 3D Subject: 浜辺美波 ---
+Actress '浜辺美波' not found by name search. Falling back to keyword search...
 DMM API Error (get_anime_works): 400
-Found 3 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【電子版だけの特典カットつき】前田敦子写真集 Be... - Face Occ: 0.071
-Database: Updating record for 前田敦子 (Old Max: 75.53 -> New: 75.53)
+Found 9 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 【電子書籍限定カット付き！】浜辺美波写真集 25... - Face Occ: 0.431
+  [2] 【電子書籍限定カット付き！】浜辺美波写真集 20... - Face Occ: 0.344
+  [9] 【電子特別版】浜辺美波写真集 voyage... - Face Occ: 0.206
+Database: Updating record for 浜辺美波 (Old Max: 85.57 -> New: 85.57)
 
 Uploading media to WordPress...
+Failed to upload media: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
+Failed to upload media: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
 Failed to upload media: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
 Failed to upload media: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
 Failed to post article: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
