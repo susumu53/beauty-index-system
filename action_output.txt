@@ -1,8 +1,8 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1787978249.951877    2556 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1787978249.956085    2558 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1787978249.961472    2553 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1787979961.203629    2680 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1787979961.209227    2685 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1787979961.215298    2679 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
 Starting analysis for: 浜辺美波 (3D)
@@ -17,11 +17,9 @@ Found 9 potential items. Processing images to find face close-ups (Occupancy >= 
 Database: Updating record for 浜辺美波 (Old Max: 85.57 -> New: 85.57)
 
 Uploading media to WordPress...
-Failed to upload media: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
-Failed to upload media: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
-Failed to upload media: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
-Failed to upload media: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
-Failed to post article: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
+Success! Article posted: http://ss660231.stars.ne.jp/2026/08/29/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e6%b5%9c%e8%be%ba%e7%be%8e%e6%b3%a2-%e3%81%ae/
+Sending data to WordPress Ranking API...
+Successfully updated real-time ranking data.
 
 --- Updating Official Ranking Page ---
-Failed to post article: 401 - {"code":"rest_cannot_create","message":"\u3053\u306e\u30e6\u30fc\u30b6\u30fc\u3068\u3057\u3066\u6295\u7a3f\u3092\u7de8\u96c6\u3059\u308b\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\u3002","data":{"status":401}}
+Ranking report successfully CREATED: http://ss660231.stars.ne.jp/2026/08/29/official-beauty-ranking/
