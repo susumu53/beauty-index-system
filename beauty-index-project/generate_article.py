@@ -159,10 +159,16 @@ class BeautyManager:
     def generate_html_content(self, res_data, media_urls, chart_url):
         """1人の対象を客観的に分析する記事HTMLを生成"""
         name = res_data['name']
+        main_img_url = media_urls[0] if media_urls else res_data.get('image_url', '')
         
         html = f"""
         <h2>進化心理学で紐解く: {name} の美の秘密</h2>
         <p>当メディアのAI画像解析システムを用い、進化心理学の観点から <b>{name}</b> の持つ「客観的な美しさ」を数値化しました。顔のパーツ単位での緻密な解析結果をお届けします。</p>
+
+        <!-- メイン人物写真 -->
+        <div style="text-align: center; margin: 25px 0;">
+            <img src="{main_img_url}" alt="{name}の解析ポートレート" style="max-width: 100%; width: 420px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 3px solid #ff69b4;" />
+        </div>
 
         <div style="background-color: #fff0f5; padding: 20px; border-radius: 10px; text-align: center; margin: 30px 0; border: 2px solid #ff69b4;">
             <h3 style="margin-top: 0; color: #d02090;">美人指数 総合スコア</h3>
@@ -170,7 +176,8 @@ class BeautyManager:
         </div>
 
         <div style="text-align: center; margin: 30px 0;">
-            <img src="{chart_url}" alt="{name}の美人指数チャート" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+            <p style="font-weight: bold; color: #666; margin-bottom: 8px;">【AIレーダーチャート解析】</p>
+            <img src="{chart_url}" alt="{name}の美人指数チャート" style="max-width: 100%; width: 380px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
         </div>
 
         <h3>1. 左右対称性（シンメトリー）: <span style="color: #ff69b4;">{res_data['symmetry']}%</span></h3>
@@ -258,6 +265,7 @@ class BeautyManager:
         # 複数画像のアップロード
         print("\nUploading media to WordPress...")
         media_urls = []
+        media_ids = []
         temp_files = []
         for idx, cand in enumerate(res_data['selected_candidates']):
             tmp_name = f"temp_face_{idx}.png"
@@ -267,12 +275,15 @@ class BeautyManager:
             m = self.uploader.upload_media(tmp_name, f"portrait_{idx}.png")
             if m:
                 media_urls.append(m['source_url'])
+                media_ids.append(m['id'])
             else:
                 media_urls.append("")
 
         m_chart = self.uploader.upload_media(chart_path, "beauty_chart.png")
 
-        # 記事投稿
+        # 記事投稿（アイキャッチ画像には人物のメイン写真を設定）
+        featured_id = media_ids[0] if media_ids else (m_chart['id'] if m_chart else None)
+
         display_name = res_data['name']
         title = f"【美人指数 解析】進化心理学が暴く {display_name} の客観的美しさ"
         content = self.generate_html_content(
@@ -280,7 +291,7 @@ class BeautyManager:
             m_chart['source_url'] if m_chart else ""
         )
         
-        post = self.uploader.post_article(title, content, featured_media_id=m_chart['id'] if m_chart else None, categories=[27])
+        post = self.uploader.post_article(title, content, featured_media_id=featured_id, categories=[27])
         
         # クリーンアップ
         for p in temp_files + [chart_path]:
