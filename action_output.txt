@@ -1,23 +1,31 @@
 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-W0000 00:00:1787980388.032884    2692 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1787980388.038795    2696 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
-W0000 00:00:1787980388.046405    2692 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1788076147.365440    2783 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1788076147.370359    2788 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1788076147.377239    2785 inference_feedback_manager.cc:114] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
 /opt/hostedtoolcache/Python/3.10.21/x64/lib/python3.10/site-packages/google/protobuf/symbol_database.py:55: UserWarning: SymbolDatabase.GetPrototype() is deprecated. Please use message_factory.GetMessageClass() instead. SymbolDatabase.GetPrototype() will be removed soon.
   warnings.warn('SymbolDatabase.GetPrototype() is deprecated. Please '
-Starting analysis for: 前田敦子 (3D)
+Starting analysis for: 中田花奈 (3D)
 
---- Objective Analysis for 3D Subject: 前田敦子 ---
-Actress '前田敦子' not found by name search. Falling back to keyword search...
+--- Objective Analysis for 3D Subject: 中田花奈 ---
+Actress '中田花奈' not found by name search. Falling back to keyword search...
 DMM API Error (get_anime_works): 400
-Found 3 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
-  [1] 【電子版だけの特典カットつき】前田敦子写真集 Be... - Face Occ: 0.071
-Database: Updating record for 前田敦子 (Old Max: 75.53 -> New: 75.53)
+Found 12 potential items. Processing images to find face close-ups (Occupancy >= 0.70)...
+  [1] 【電子特典画像10P付き】中田花奈3rd写真集 B... - Face Occ: 0.109
+  [2] 中田花奈 かなりKANA ヤンマガデジタル写真集... - Face Occ: 0.091
+  [3] 【電子版だけの特典カット付き】中田花奈 2nd写真... - Face Occ: 0.067
+  [4] 中田花奈 花ほころぶ ヤンマガデジタル写真集... - Face Occ: 0.051
+  [5] 中田花奈「神業ボディ」SPA！デジタル写真集... - Face Occ: 0.123
+  [6] 中田花奈 こんなにそばにいるのに FRIDAYデジ... - Face Occ: 0.104
+  [7] FLASHデジタル写真集 中田花奈 Bloom... - Face Occ: 0.041
+  [8] 中田花奈 もっとずっと、かなりん ヤンマガデジタル... - Face Occ: 0.146
+  [9] 中田花奈 美しい人 FRIDAYデジタル写真集... - Face Occ: 0.097
+  [10] 中田花奈 Last of my 20s ヤンマガデ... - Face Occ: 0.142
 
 Uploading media to WordPress...
-Success! Article posted: http://ss660231.stars.ne.jp/2026/08/29/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e5%89%8d%e7%94%b0%e6%95%a6%e5%ad%90-%e3%81%ae/
+Success! Article posted: http://ss660231.stars.ne.jp/2026/08/30/%e3%80%90%e7%be%8e%e4%ba%ba%e6%8c%87%e6%95%b0-%e8%a7%a3%e6%9e%90%e3%80%91%e9%80%b2%e5%8c%96%e5%bf%83%e7%90%86%e5%ad%a6%e3%81%8c%e6%9a%b4%e3%81%8f-%e4%b8%ad%e7%94%b0%e8%8a%b1%e5%a5%88-%e3%81%ae/
 Sending data to WordPress Ranking API...
 Successfully updated real-time ranking data.
 
 --- Updating Official Ranking Page ---
-Ranking report successfully CREATED: http://ss660231.stars.ne.jp/2026/08/29/official-beauty-ranking/
+Ranking report successfully UPDATED: http://ss660231.stars.ne.jp/2026/08/29/official-beauty-ranking/
